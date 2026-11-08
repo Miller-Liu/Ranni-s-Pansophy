@@ -1,0 +1,143 @@
+Vigor +1
+Vigor +2
+Vigor +3
+Mind +1
+Mind +2
+Mind +3
+Endurance +1
+Endurance +2
+Endurance +3
+Strength +1
+Strength +2
+Strength +3
+Dexterity +1
+Dexterity +2
+Dexterity +3
+Intelligence +1
+Intelligence +2
+Intelligence +3
+Faith +1
+Faith +2
+Faith +3
+Arcane +1
+Arcane +2
+Arcane +3
+Poise +1
+Poise +2
+Poise +3
+Increased maximum HP
+Increased maximum FP
+Increased maximum Stamina
+Improved [Status] Resistance
+Max FP Up with 3+ Staves Equipped
+Max FP Up with 3+ Sacred Seals Equipped
+Max HP Up with 3+ Small Shields Equipped
+Max HP Up with 3+ Medium Shields Equipped
+Max HP Up with 3+ Greatshields Equipped
+Starting Weapon deals [element] Damage
+Stating armament inflicts "x" status
+Change compatible armament skill to [xxx] at start of expedition
+[Consumable] in possession at start of expedition
+Small pouch in possession at start of expedition
+Stonesword in possession at start of expedition
+Flask Also Heals Allies
+Item confer effect to all nearby allies
+Increase rune acquisition for self and allies
+Critical Hits Earn Runes
+Attack power permanently increased for each evergaol prisoner defeated
+Max FP increased for each Sorcerer's Rise unlocked
+Attack power up after defeating a Night Invader
+(Huge) Rune discount for shop purchases while on expedition
+Treasure marked upon map
+Taking attacks improves attack power
+Physical Attack Up +0/1/2
+Improved Melee Attack Power
+Improved Skill Attack Power
+Magic/Fire/Lightning/Holy Attack Up +0/1/2
+Improved stance breaking when two handing
+Improved stance breaking while wielding two armaments
+Switching Weapons Adds an Affinity Attack
+Boosts Attack Power of Added Affinity Attacks
+Switching Weapons Boosts Attack Power
+Successive Attacks Boosts Attack Power
+Attack power increases after using grease items
+Improved Initial Standard Attack
+Improved Guard Counters
+Guard counter is given a boost based on current HP
+Improved Critical Hits +0/1
+Improved Throwing Pot/Knife/Stone/Perfuming Arts Damage
+Improved [Spell School] Sorcery/Incantation
+Improves Roar and Breath attacks
+Improve [Weapon Type] attack power
+Improved Attack Power with 3 [Weapon Type] Equipped
+Attack power up when facing frostbite/poison/rot afflicted enemy
+Frostbite in Vicinity Conceals Self
+Poison & Rot in Vicinity Increases Attack Power
+Status Ailment Gauges Slowly Increase Attack Power
+Attacks Inflict Rot When Damage Is Taken
+Improved Physical Damage Negation
+Magic/Fire/Lightning/Holy Damage Negation Up
+Improved Damage Negation at Low HP
+Draw enemy attention while guarding
+Improved Poise & Damage Negation When Knocked Back by Damage
+Occasionally Nullify Attacks When Damage Negation is Lowered
+Character Skill Cooldown +1/2/3
+Ultimate Art Gauge +1/2/3
+Partial HP Restoration upon Post-Damage Attacks
+Slowly restore HP for self and nearby allies when HP is low
+Art gauge fills moderately upon critical hit
+HP restored when using cured meats, medicinal boluses, etc.
+Art gauge charged from successful guarding
+Critical Hit Boosts Stamina Recovery Speed
+Gesture "Crossed Legs" Builds Up Madness
+Madness Continually Recovers FP
+Continuous HP recovery 
+Continuous FP Recovery
+Rot in Vicinity Causes Continuous HP Recovery
+Raised stamina recovery for nearby allies, but not for self
+FP Restoration upon Successive Attacks
+HP Recovery From Successful Guarding
+Defeating enemies fills more of the Art gauge
+Defeating enemies restores HP for allies but not for self
+Stamina Recovery upon Landing Attacks +0/+1
+HP restoration after [Weapon type] attacks
+FP restoration after [Weapon type] attacks
+HP Restoration upon Thrusting Counterattack
+[Wylder] Art gauge is greatly filled when ability is activated
+[Wylder] Art activation spreads fire in the area
+[Wylder] Standard attacks enhanced with fiery follow-ups when using Character Skill (greatsword only)
+[Wylder] +1 additional character skill use
+[Guardian] Increased skill duration
+[Guardian] Slowly restores nearby allies HP while Art is active
+[Guardian] Creates whirlwind when charging halberd attacks
+[Guardian] Successful guards send out shockwaves while ability is active
+[Ironeye] Art Charge Activation Adds Poison Effect
+[Ironeye] Boosts thrusting counterattacks after executing Art
+[Ironeye] Extends duration of weak point
+[Ironeye] +1 additional character skill use
+[Duchess] Defeating enemies while Art is active ups attack power
+[Duchess] Improved Character Skill Attack Power
+[Duchess] Become difficult to spot and silence footsteps after landing critical from behind
+[Duchess] Successive dagger attack reprises event upon nearby enemies
+[Raider] Duration of Ultimate Art extended
+[Raider] Damage taken while using Character Skill improves attack power and stamina
+Defeating enemies near Totem Stela restores HP
+Improved Poise Near Totem Stela
+[Revenant] Expend own HP to fully heal nearby allies when activating Art
+[Revenant] Trigger ghostflame explosion during Ultimate Art activation
+[Revenant] Strengthens family and allies when Ultimate Art is activated
+[Revenant] Power up while fighting alongside family
+[Recluse] Collecting affinity residue activates Terra Magica
+[Recluse] Suffer blood loss and increase attack power upon Art activation
+[Recluse] Activating Ultimate Art raises Max HP
+[Executor] Character Skill Boosts Attack but Lowers Damage Negation While Attacking
+[Executor] While Character Skill is active, unlocking use of cursed sword restores HP
+[Executor] Roaring restores HP while art is active
+[Scholar] Prevent slowing of Character Skill
+[Scholar] Allies targeted by Character Skill gain boosted attack
+[Scholar] Continuous damage inflicted on targets threaded by Ultimate Art
+[Scholar] Earn runes for each additional specimen acquired with Character Skill
+[Undertaker] Activating Ultimate Art increases attack power
+[Undertaker] Attack power increases by landing the final blow of a chain attack
+[Undertaker] Physical attacks boosted while assist effect from incantation is active for self
+[Undertaker] Contact with allies restores their HP while Ultimate Art is activated"

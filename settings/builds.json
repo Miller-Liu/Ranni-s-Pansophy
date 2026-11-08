@@ -1,0 +1,19 @@
+{
+  "Ironeye": {
+    "10": ["[Ironeye] Extends duration of weak point"],
+    "7": ["Starting armament inflicts blood loss"],
+    "5": ["Improved Critical Hits"],
+    "1": ["Improved Blood Loss Resistance"],
+    "-1": ["Improved Dragon Cult Incantations"]
+  },
+  "Revenant": {
+    "8": ["Improved Dragon Cult Incantations"],
+    "6": ["Improved Bestial Incantations"],
+    "4": ["Changes compatible armament's incantation to Beast Claw at start of expedition"],
+    "3": ["Faith +1"]
+  },
+  "Guardian": {
+    "6": ["HP Recovery From Successful Guarding"],
+    "2": ["Lightning Pots in possession at start of expedition"]
+  }
+}

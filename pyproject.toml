@@ -1,0 +1,37 @@
+[project]
+name = "ranni"
+version = "0.1.0"
+description = "Ranni: passive screen-reading helper for Elden Ring Nightreign relic screens"
+authors = [
+    { name = "Miller-Liu", email = "millerliu@berkeley.edu" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.0",
+    "opencv-python-headless>=4.10",
+    "rapidfuzz>=3.9",
+    # Windows only: screen capture (dxcam = fastest, mss = fallback) and Windows OCR.
+    "dxcam>=0.3; sys_platform == 'win32'",
+    "mss>=10; sys_platform == 'win32'",
+    "winrt-runtime>=3.2; sys_platform == 'win32'",
+    "winrt-Windows.Foundation>=3.2; sys_platform == 'win32'",
+    "winrt-Windows.Foundation.Collections>=3.2; sys_platform == 'win32'",
+    "winrt-Windows.Globalization>=3.2; sys_platform == 'win32'",
+    "winrt-Windows.Graphics.Imaging>=3.2; sys_platform == 'win32'",
+    "winrt-Windows.Media.Ocr>=3.2; sys_platform == 'win32'",
+    "winrt-Windows.Storage.Streams>=3.2; sys_platform == 'win32'",
+    "regex>=2026.9.29",
+]
+
+[project.scripts]
+ranni = "ranni.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
