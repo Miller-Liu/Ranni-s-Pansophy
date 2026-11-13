@@ -66,5 +66,6 @@ uv run ranni scan "samples/End Screen #1.jpg" --debug   # tiles only, no OCR
 
 - `settings/effects.json`, `settings/deep_effects.json`: every relic effect (pattern, description, stackable)
 - `settings/builds.json`: per-character tier lists of effects
+- `interactive.py`: type lines and see every matching step and the score (`uv run python interactive.py`)
 - `src/ranni/`: the code; [CLAUDE.md](CLAUDE.md) describes how it fits together
 - [TESTING.md](TESTING.md): step-by-step Windows test plan

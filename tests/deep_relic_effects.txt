@@ -1,30 +1,37 @@
 Increased Maximum HP
 Increased Maximum FP
 Increased Maximum Stamina
-[Item] in possession at start of expedition
+Crimson Crystal Tear in possession at start of expedition
 Max HP increased for each great enemy defeated at a Great Church
 Runes and Item Discovery increased for each great enemy defeated at a Fort
 Arcane increased for each great enemy defeated at a Ruin
 Max stamina increased for each great enemy defeated at a Great Encampment
-Dormant Power Helps Discover [Weapon Class]
-Physical Attack Up +3/4
-Magic/Fire/Lightning/Holy Attack Up +3/4
-Improved Affinity Attack Power +0/1/2
-Physical attack power increases after using grease items +1/2
-Attack power up when facing poison/scarlet rot/frostbite-afflicted enemy +1/2
-Sleep/Madness in Vicinity Improves Attack Power +0/+1
-Improved Guard Counters +1/2
-Improved [Consumable] Damage +1/2
+Dormant Power Helps Discover Katanas
+Physical Attack Up +3
+Physical Attack Up +4
+Fire Attack Up +3
+Holy Attack Up +4
+Improved Affinity Attack Power
+Improved Affinity Attack Power +2
+Physical attack power increases after using grease items +1
+Attack power up when facing Scarlet Rot-afflicted enemy +2
+Sleep in Vicinity Improves Attack Power
+Madness in Vicinity Improves Attack Power +1
+Improved Guard Counters +1
+Improved Throwing Pot Damage +2
 Art gauge charged from successful guarding +1
 Art gauge fills moderately upon critical hit +1
 Defeating enemies fills more of the Art gauge +1
-Improved Sorceries/Incantations +0/1/2
-Reduced FP Consumption +0/1/2
-Improved Physical Damage Negation +1/2
-Improved [Element] Damage Negation +1/2
-Improved Affinity Damage Negation +0/1/2
-Improved [Status] Resistance +1/2
-Partial HP Restoration upon Post-Damage Attacks +1/2
+Improved Sorceries
+Improved Incantations +1
+Reduced FP Consumption
+Reduced FP Consumption +2
+Improved Physical Damage Negation +1
+Improved Holy Damage Negation +2
+Improved Affinity Damage Negation
+Improved Affinity Damage Negation +1
+Improved Frostbite Resistance +1
+Partial HP Restoration upon Post-Damage Attacks +2
 HP Restoration upon Thrusting Counterattack +1
 HP restored when using medicinal boluses, etc. +1
 Improved Flask HP Restoration
@@ -58,7 +65,7 @@ Improved Flask HP Restoration
 [Scholar] Improved Endurance and Dexterity, Reduced Intelligence and Arcane
 [Undertaker] Improved Dexterity, Reduced Vigor and Faith
 [Undertaker] Improved Mind and Faith, Reduced Strength
-Taking Damage Causes [Status] Buildup
+Taking Damage Causes Madness Buildup
 Reduced Strength and Intelligence
 Reduced Dexterity and Faith
 Reduced Dexterity and Intelligence

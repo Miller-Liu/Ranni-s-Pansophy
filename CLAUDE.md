@@ -17,37 +17,40 @@ How the game shows relics: relic **tiles** show icons only; the effects appear o
 
 ## Goal (simplified)
 
-Recognize a relic → score it. Scores come from `settings/builds.json`: per build, points per effect plus a `forbid` list; a relic's score is the best total over builds that don't forbid any of its effects. Scores are drawn by a full-screen overlay on the tiles themselves.
+Recognize a relic → score it. Scores come from `settings/builds.json`: one tier list per character (tier -1..10 → effects by official text); a relic's score for a character is the sum of its effects' tiers, any -1 effect rules that character out, and the relic shows the best character's score. Scores are drawn by a full-screen overlay on the tiles themselves.
 
 ## How it works
 
-`scan(image, engine, builds, memory) -> Scene` (`src/ranni/scan.py`) is the whole pipeline, platform-independent:
+`scan(image, engine, manager, scorer, memory) -> Scene` (`src/ranni/scan.py`) is the whole pipeline, platform-independent:
 
 1. **Find tiles** (`relics/find_relics`): no settings; straight-line square scoring at 540 px height. ~100 ms.
 2. **Read text** (`ocr/read_text`): Windows OCR of the whole screen (lines + boxes).
-3. **Match effects** (`scoring/match.py`): snap each line to a known effect (every name in builds.json) with rapidfuzz (`fuzz.ratio` ≥ 85, numbers must match exactly, a stray leading icon character is tolerated); unmatched lines are tried joined with the line below (wrapped effects). Everything else is ignored.
+3. **Match effects** (`effects/`, `match_lines`): each line against every pattern in `settings/effects.json`. Each group option is its own named group (selector), so a match tells which option it was even with typos. Exact match first, else fuzzy with the `regex` package (≤ 10% of the length in edits, ≥ 1, never on digits; lines of 30+ chars only try the 5 most similar effects by rapidfuzz first). Spaces match any spaces; a stray leading icon character is tolerated; unmatched lines are tried joined with the line below (wrapped effects). Gives the official text (`Vigor +2`, the key tier lists use), the options and the filled-in description. Deep relics (`deep_effects.json`) are not used yet.
 4. **Details icon**: the box with ≥ 2 text lines just to its right; it's not a tile.
 5. **Selected tile** (`relics/find_selected`): its border band is ≥ 1.6× brighter than any other tile's.
-6. **Score** (`scoring/score_relic`).
+6. **Score** (`scoring/Scorer`): one `TierList` per character, by official text.
 7. **Track** (`tracking/TileMemory`, session only): remember the selected tile's score by a 12×12 thumbnail of its art plus its neighbours' thumbnails (reading order); recall it on tiles that look the same and have ≥ 1 matching neighbour. Conflicting memories → no label. Handles scrolling, selling and identical-looking relics.
 
 Live mode (`ranni run`, `src/ranni/app.py`, Windows): hotkey thread (Ctrl+Alt+Space live on/off, Ctrl+Alt+End quit; `GetMessageW`, no CPU) → scanner thread (while live: capture → scan, every 0.25 s; while off it waits) → overlay on the main thread (Tk polls a queue). Capture is dxcam (DXGI Desktop Duplication), falling back to mss. The overlay is click-through and excluded from capture (`SetWindowDisplayAffinity(WDA_EXCLUDEFROMCAPTURE)`) so Ranni never detects its own drawings.
 
 **All Windows code (capture/, hotkey/, overlay/, app.py, ocr/windows.py) was written on macOS and is UNTESTED.** Library APIs were checked against the installed versions' sources/stubs (dxcam 0.3.0, mss 10.2, pywinrt 3.2.1). See TESTING.md.
 
-Samples: `End Screen #1` and `Small Jar #1/#3` are good. `Small Jar #2/#4` are low-res web images; `Relic Rites #1.avif` can't be read by OpenCV. Real in-game PNGs of Relic Rites are needed.
+Samples: `End Screen #1` and `Small Jar #1/#3`. Real in-game PNGs of Relic Rites are needed.
 
 ## Code organization: one folder per concern
 
 ```
-settings/builds.json     builds: effect points + forbid list (example data; user will replace)
-settings/effects.json    effect patterns (regex + details); see effects/__init__.py
+settings/builds.json     per-character tier lists of effects (example data; user will replace)
+settings/effects.json    every regular relic effect: pattern (regex, groups numbered @1..), description, stackable
+settings/deep_effects.json  the same for deep relics (not used by the scan yet)
 src/ranni/
   types.py               Box
   relics/                find_relics (tiles), find_selected (glowing tile)
-  ocr/                   read_text, default_engine; engine.py (OcrLine, OcrEngine); windows.py
-  effects/               OCR line -> effect: effects.json loading (__init__), match_effect (match.py)
-  scoring/               builds.json, score_relic; match.py (old OCR matcher, to be replaced by effects/)
+  ocr/                   read_text, default_engine; engine.py (OcrLine, OcrEngine); layout.py (wrapped lines); windows.py
+  effects/               OCR text -> effects: EffectManager (manager.py: loads, decides which effect a line shows),
+                         Effect + Match (effect.py: checks itself on load, fills its description),
+                         EffectPattern (pattern.py: every regex detail)
+  scoring/               Scorer (builds.json) + TierList (one character)
   tracking/              TileMemory: keep scores attached to tiles
   scan.py                the pipeline -> Scene
   draw.py                draw a Scene on an image (debug)
@@ -57,13 +60,14 @@ src/ranni/
   app.py                 live mode wiring                         Windows
   cli.py                 `ranni scan <image> [--debug]`, `ranni run`
 tests/                   pytest; real samples + fake OCR engines; Windows parts only import-checked
+interactive.py           type lines, see every matching step and the score (logging at DEBUG shows EffectManager's steps)
 ```
 
 Windows-only packages load lazily (inside functions) so everything imports and tests run on macOS; `tests/test_imports.py` enforces it.
 
 ## Tech stack
 
-`numpy`, `opencv-python-headless`, `rapidfuzz`, `pytest`; Python's built-in `tkinter` for the overlay; on Windows `dxcam` + `mss` (capture) and the `winrt-*` packages (OCR) (platform markers in `pyproject.toml`). Managed with `uv`, Python 3.12: `uv sync` installs the project editable into `.venv/` and provides the `ranni` command.
+`numpy`, `opencv-python-headless`, `regex` (fuzzy matching), `rapidfuzz` (quick similarity prefilter), `pytest`; Python's built-in `tkinter` for the overlay; on Windows `dxcam` + `mss` (capture) and the `winrt-*` packages (OCR) (platform markers in `pyproject.toml`). Managed with `uv`, Python 3.12: `uv sync` installs the project editable into `.venv/` and provides the `ranni` command.
 
 Prefer small, boring dependencies. Ask before adding anything heavy (ML frameworks, GUI toolkits).
 

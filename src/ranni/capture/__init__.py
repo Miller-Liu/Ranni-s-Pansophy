@@ -18,7 +18,7 @@ class DxcamCapture:
     name = "dxcam"
 
     def __init__(self) -> None:
-        import dxcam
+        import dxcam  # pyright: ignore[reportMissingImports]  (Windows only: not installed on the Mac)
 
         self._camera = dxcam.create(output_color="BGR")
 
@@ -39,7 +39,7 @@ class MssCapture:
     name = "mss"
 
     def __init__(self) -> None:
-        import mss
+        import mss  # pyright: ignore[reportMissingImports]  (Windows only: not installed on the Mac)
 
         self._mss = mss.mss()
         self._monitor = self._mss.monitors[1]  # primary monitor

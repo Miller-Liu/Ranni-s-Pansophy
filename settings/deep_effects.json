@@ -22,9 +22,9 @@
 	"Start of game": [
 		{
 			"name": "Start with item",
-			"pattern": "(?P<item>Crimson Crystal Tear|Crimsonspill Crystal Tear|Crimsonburst Crystal Tear|Crimson Bubbletear|Crimsonwhorl Bubbletear|Cerulean Crystal Tear|Cerulean Hidden Tear|Greenspill Crystal Tear|Greenburst Crystal Tear|Opaline Bubbletear|Opaline Hardtear|Leaden Hardtear|Winged Crystal Tear|Windy Crystal Tear|Ruptured Crystal Tear|Thorny Cracked Tear|Spiked Cracked Tear|Twiggy Cracked Tear|Stonebarb Cracked Tear|Purifying Crystal Tear|Strength-knot Crystal Tear|Dexterity-knot Crystal Tear|Intelligence-knot Crystal Tear|Faith-knot Crystal Tear|Flame-Shrouding Cracked Tear|Magic-Shrouding Cracked Tear|Lightning-Shrouding Cracked Tear|Holy-Shrouding Cracked Tear|Ironjar Aromatic|Uplifting Aromatic|Spark Aromatic|Bloodboil Aromatic|Poison Spraymist|Acid Spraymist|Fire Spritzer|Frost Spritzer|Lightning Spritzer) in possession at start of expedition",
+			"pattern": "(Crimson Crystal Tear|Crimsonspill Crystal Tear|Crimsonburst Crystal Tear|Crimson Bubbletear|Crimsonwhorl Bubbletear|Cerulean Crystal Tear|Cerulean Hidden Tear|Greenspill Crystal Tear|Greenburst Crystal Tear|Opaline Bubbletear|Opaline Hardtear|Leaden Hardtear|Winged Crystal Tear|Windy Crystal Tear|Ruptured Crystal Tear|Thorny Cracked Tear|Spiked Cracked Tear|Twiggy Cracked Tear|Stonebarb Cracked Tear|Purifying Crystal Tear|Strength-knot Crystal Tear|Dexterity-knot Crystal Tear|Intelligence-knot Crystal Tear|Faith-knot Crystal Tear|Flame-Shrouding Cracked Tear|Magic-Shrouding Cracked Tear|Lightning-Shrouding Cracked Tear|Holy-Shrouding Cracked Tear|Ironjar Aromatic|Uplifting Aromatic|Spark Aromatic|Bloodboil Aromatic|Poison Spraymist|Acid Spraymist|Fire Spritzer|Frost Spritzer|Lightning Spritzer) in possession at start of expedition",
 			"stackable": true,
-			"effect": "Starts the game with @item",
+			"effect": "Starts the game with @1",
 			"note": "Lists contains all crystal tears and perfume items. Item names are Elden Ring's, from memory; check the exact wording in game"
 		}
 	],
@@ -55,9 +55,9 @@
 		},
 		{
 			"name": "Dormant power helps discover weapon class",
-			"pattern": "Dormant Power Helps Discover (?P<weapon>Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals)",
+			"pattern": "Dormant Power Helps Discover (Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals)",
 			"stackable": false,
-			"effect": "Changes the preferred weapon class to @weapon, making it more likely to obtain it",
+			"effect": "Changes the preferred weapon class to @1, making it more likely to obtain it",
 			"note": "Priority is given to first one in order. Does not stack with character's preferred weapon type. Weapon type names are Elden Ring's weapon classes; check the exact wording in game"
 		}
 	],
@@ -70,9 +70,9 @@
 		},
 		{
 			"name": "Elemental attack up +3/4",
-			"pattern": "(?P<element>Magic|Fire|Lightning|Holy) Attack Up \\+(3|4)",
+			"pattern": "(Magic|Fire|Lightning|Holy) Attack Up \\+(3|4)",
 			"stackable": true,
-			"effect": "Increases @element damage by [1.105x, 1.12x]"
+			"effect": "Increases @1 damage by [1.105x, 1.12x]"
 		},
 		{
 			"name": "Improved affinity attack power",
@@ -97,23 +97,23 @@
 		},
 		{
 			"name": "Attack power up against afflicted enemies +1/2",
-			"pattern": "Attack power up when facing (?P<status>Poison|Scarlet Rot|Frostbite)-afflicted enemy \\+(1|2)",
+			"pattern": "Attack power up when facing (Poison|Scarlet Rot|Frostbite)-afflicted enemy \\+(1|2)",
 			"stackable": false,
-			"effect": "Increases damage by [1.16x, 1.2x] when attacking an enemy suffering from @status",
+			"effect": "Increases damage by [1.16x, 1.2x] when attacking an enemy suffering from @1",
 			"note": "Different levels stack (ex. +1 stacks with +2)"
 		},
 		{
 			"name": "Sleep/madness in vicinity improves attack power",
-			"pattern": "(?P<status>Sleep|Madness) in Vicinity Improves Attack Power",
+			"pattern": "(Sleep|Madness) in Vicinity Improves Attack Power",
 			"stackable": false,
-			"effect": "Increases damage by 1.12x after @status procs",
+			"effect": "Increases damage by 1.12x after @1 procs",
 			"note": "+0 stacks with +1"
 		},
 		{
 			"name": "Sleep/madness in vicinity improves attack power +1",
-			"pattern": "(?P<status>Sleep|Madness) in Vicinity Improves Attack Power \\+1",
+			"pattern": "(Sleep|Madness) in Vicinity Improves Attack Power \\+1",
 			"stackable": false,
-			"effect": "Increases damage by 1.22x after @status procs",
+			"effect": "Increases damage by 1.22x after @1 procs",
 			"note": "+0 stacks with +1"
 		},
 		{
@@ -124,9 +124,9 @@
 		},
 		{
 			"name": "Improved throwable damage +1/2",
-			"pattern": "Improved (?P<item>Throwing Pot|Throwing Knife|Throwing Stone|Perfuming Arts) Damage \\+(1|2)",
+			"pattern": "Improved (Throwing Pot|Throwing Knife|Throwing Stone|Perfuming Arts) Damage \\+(1|2)",
 			"stackable": true,
-			"effect": "Increases @item damage by [1.3x, 1.35x]"
+			"effect": "Increases @1 damage by [1.3x, 1.35x]"
 		},
 		{
 			"name": "Art gauge charged from successful guarding +1",
@@ -151,15 +151,15 @@
 		},
 		{
 			"name": "Improved sorceries/incantations",
-			"pattern": "Improved (?P<spell>Sorceries|Incantations)",
+			"pattern": "Improved (Sorceries|Incantations)",
 			"stackable": true,
-			"effect": "Increases @spell damage by 1.05x"
+			"effect": "Increases @1 damage by 1.05x"
 		},
 		{
 			"name": "Improved sorceries/incantations +1/2",
-			"pattern": "Improved (?P<spell>Sorceries|Incantations) \\+(1|2)",
+			"pattern": "Improved (Sorceries|Incantations) \\+(1|2)",
 			"stackable": true,
-			"effect": "Increases @spell damage by [1.085x, 1.1x]"
+			"effect": "Increases @1 damage by [1.085x, 1.1x]"
 		},
 		{
 			"name": "Reduced FP consumption",
@@ -184,9 +184,9 @@
 		},
 		{
 			"name": "Improved elemental damage negation +1/2",
-			"pattern": "Improved (?P<element>Magic|Fire|Lightning|Holy) Damage Negation \\+(1|2)",
+			"pattern": "Improved (Magic|Fire|Lightning|Holy) Damage Negation \\+(1|2)",
 			"stackable": true,
-			"effect": "Increases @element damage negation by [15%, 16%]"
+			"effect": "Increases @1 damage negation by [15%, 16%]"
 		},
 		{
 			"name": "Improved affinity damage negation",
@@ -202,9 +202,9 @@
 		},
 		{
 			"name": "Improved status resistance +1/2",
-			"pattern": "Improved (?P<status>Poison|Rot|Blood Loss|Frostbite|Sleep|Madness|Death Blight) Resistance \\+(1|2)",
+			"pattern": "Improved (Poison|Rot|Blood Loss|Frostbite|Sleep|Madness|Death Blight) Resistance \\+(1|2)",
 			"stackable": true,
-			"effect": "Increases @status resistance by [110, 130]"
+			"effect": "Increases @1 resistance by [110, 130]"
 		}
 	],
 	"Regen": [
@@ -437,14 +437,14 @@
 	"Curse": [
 		{
 			"name": "Taking damage causes status buildup",
-			"pattern": "Taking Damage Causes (?P<status>Poison|Rot|Blood Loss|Frostbite|Sleep|Madness|Death Blight) Buildup",
+			"pattern": "Taking Damage Causes (Poison|Rot|Blood Loss|Frostbite|Sleep|Madness|Death Blight) Buildup",
 			"stackable": true,
 			"effect": {
 				"death blight": "Taking damage inflicts 32 death blight buildup on the user",
 				"madness": "Taking damage inflicts 40 madness buildup on the user",
 				"sleep": "Taking damage inflicts 40 sleep buildup on the user",
 				"poison": "Taking damage inflicts 52 poison buildup on the user",
-				"default": "Taking damage inflicts 44 @status buildup on the user"
+				"default": "Taking damage inflicts 44 @1 buildup on the user"
 			},
 			"note": "Poison / Rot / Frost does not trigger executor ability Tenacity until the status is recovered"
 		},

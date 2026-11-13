@@ -122,12 +122,12 @@ def _line_through_middle(horizontal: np.ndarray, vertical: np.ndarray, x: int, y
     lo, hi, q1, q3 = int(0.1 * s), int(0.9 * s), s // 4, 3 * s // 4
     rows = horizontal[y + lo : y + hi, x + q1 : x + q3].mean(axis=1).max()
     cols = vertical[y + q1 : y + q3, x + lo : x + hi].mean(axis=0).max()
-    return max(rows, cols) > MAX_INNER_LINE
+    return bool(max(rows, cols) > MAX_INNER_LINE)
 
 
 def _has_art(edges: np.ndarray, x: int, y: int, s: int) -> bool:
     m = s // 5
-    return (edges[y + m : y + s - m, x + m : x + s - m] > 0).mean() >= MIN_ART
+    return bool((edges[y + m : y + s - m, x + m : x + s - m] > 0).mean() >= MIN_ART)
 
 
 def find_selected(image: np.ndarray, boxes: list[Box]) -> int | None:

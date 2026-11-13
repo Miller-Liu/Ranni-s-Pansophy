@@ -35,7 +35,7 @@ def draw_scene(image: np.ndarray, scene: Scene) -> np.ndarray:
             if e.box is None:
                 continue
             x, y, w, h = e.box
-            pts = scene.score.points.get(e.name)
+            pts = scene.score.points.get(e.text)
             text = f"+{pts:g}" if pts is not None else "forbidden"
             _badge(out, text, (x + w + round(10 * s), y), 0.7 * s, GREEN if pts else WHITE)
         anchor = scene.details_icon or (scene.effects[0].box if scene.effects else None)

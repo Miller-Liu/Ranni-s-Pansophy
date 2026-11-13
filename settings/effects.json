@@ -2,19 +2,19 @@
 	"Stat boost": [
 		{
 			"name": "Increase stat",
-			"pattern": "(?P<stat>Vigor|Mind|Endurance|Strength|Dexterity|Intelligence|Faith|Arcane|Poise) \\+(1|2|3)",
+			"pattern": "(Vigor|Mind|Endurance|Strength|Dexterity|Intelligence|Faith|Arcane|Poise) \\+(1|2|3)",
 			"stackable": true,
 			"effect": {
 				"vigor": "Increase Maximum HP by [20, 40, 60]",
 				"mind": "Increase Maximum FP by [5, 10, 15]",
 				"endurance": "Increase Maximum Stamina by [2, 4, 6]",
 				"poise": "Increase Poise by [0.95, 0.9, 0.85]",
-				"default": "Increase @stat by [1, 2, 3]"
+				"default": "Increase @1 by [1, 2, 3]"
 			}
 		},
 		{
 			"name": "Increase stat (Dark Night of the Fathom/Wise/Champion exclusive)",
-			"pattern": "Increased Maximum (?P<stat>HP|FP|Stamina)",
+			"pattern": "Increased Maximum (HP|FP|Stamina)",
 			"stackable": false,
 			"effect": {
 				"hp": "Increase Maximum HP by 100 (Exclusive to Dark Night of the Fathom)",
@@ -24,9 +24,9 @@
 		},
 		{
 			"name": "Improved status resistance",
-			"pattern": "Improved (?P<status>Poison|Rot|Blood Loss|Frostbite|Sleep|Madness|Death Blight) Resistance",
+			"pattern": "Improved (Poison|Rot|Blood Loss|Frostbite|Sleep|Madness|Death Blight) Resistance",
 			"stackable": true,
-			"effect": "Increase @status resistance by 75"
+			"effect": "Increase @1 resistance by 75"
 		},
 		{
 			"name": "Max FP up with 3+ Staves/Sacred Seals equipped",
@@ -44,25 +44,25 @@
 	"Start of game": [
 		{
 			"name": "Starting weapon deals elemental damage",
-			"pattern": "Starting Weapon deals (?P<element>Magic|Fire|Lightning|Holy) Damage",
+			"pattern": "Starting Weapon deals (Magic|Fire|Lightning|Holy) Damage",
 			"stackable": false,
 			"effect": "Decreases starting weapon's physical AP and add elemental AP",
 			"note": "Does not work with \"Starting Armament Inflict Status\""
 		},
 		{
 			"name": "Stating armament inflict status",
-			"pattern": "Stating armament inflicts (?P<status>Poison|Blood Loss|Frostbite) status",
+			"pattern": "Stating armament inflicts (Poison|Blood Loss|Frostbite) status",
 			"stackable": false,
 			"effect": {
 				"blood loss": "Decreases starting weapon's damage by 0.85x and adds 25 blood loss buildup",
 				"poison": "Decreases starting weapon's damage by 0.85x and adds 35 poison buildup",
-				"frost": "Decreases starting weapon's damage by 0.85x and adds 35 frost buildup"
+				"frostbite": "Decreases starting weapon's damage by 0.85x and adds 35 frost buildup"
 			},
 			"note": "Does not work with \"Starting Armament Deals Elemental Damage\""
 		},
 		{
 			"name": "Change compatible armament skill",
-			"pattern": "Change compatible armament skill to (?P<skill>[^\\d]+) at start of expedition",
+			"pattern": "Change compatible armament skill to ([^\\d]+) at start of expedition",
 			"stackable": false,
 			"effect": ""
 		},
@@ -80,7 +80,7 @@
 		},
 		{
 			"name": "Start with consummable",
-			"pattern": "(?P<item>[^\\d]+) in possession at start of expedition",
+			"pattern": "([^\\d]+) in possession at start of expedition",
 			"stackable": true,
 			"effect": ""
 		}
@@ -184,15 +184,15 @@
 		},
 		{
 			"name": "Elemental attack up",
-			"pattern": "(?P<element>Magic|Fire|Lightning|Holy) Attack Up",
+			"pattern": "(Magic|Fire|Lightning|Holy) Attack Up",
 			"stackable": true,
-			"effect": "Increases @element damage by 1.045x"
+			"effect": "Increases @1 damage by 1.045x"
 		},
 		{
 			"name": "Elemental attack up +1/2",
-			"pattern": "(?P<element>Magic|Fire|Lightning|Holy) Attack Up \\+(1|2)",
+			"pattern": "(Magic|Fire|Lightning|Holy) Attack Up \\+(1|2)",
 			"stackable": true,
-			"effect": "Increases @element damage by [1.055x, 1.065x]"
+			"effect": "Increases @1 damage by [1.055x, 1.065x]"
 		},
 		{
 			"name": "Improved stance breaking when two handing",
@@ -279,22 +279,22 @@
 		},
 		{
 			"name": "Improved throwable damage",
-			"pattern": "Improved (?P<item>Throwing Pot|Throwing Knife|Throwing Stone|Perfuming Arts) Damage",
+			"pattern": "Improved (Throwing Pot|Throwing Knife|Throwing Stone|Perfuming Arts) Damage",
 			"stackable": true,
-			"effect": "Increases @item damage by 1.15x"
+			"effect": "Increases @1 damage by 1.15x"
 		},
 		{
 			"name": "Improved sorcery school",
-			"pattern": "Improved (?P<school>Glintblade|Stonedigger|Carian Sword|Invisibility|Crystalian|Gravity|Thorn) Sorcery",
+			"pattern": "Improved (Glintblade|Stonedigger|Carian Sword|Invisibility|Crystalian|Gravity|Thorn) Sorcery",
 			"stackable": true,
-			"effect": "Increases damage of @school sorceries by 1.12x",
+			"effect": "Increases damage of @1 sorceries by 1.12x",
 			"note": "School names are from memory; check the exact wording in game"
 		},
 		{
 			"name": "Improved incantation school",
-			"pattern": "Improved (?P<school>Fundamentalist|Dragon Cult|Giants' Flame|Godslayer|Bestial|Frenzied Flame|Dragon Communion) Incantations",
+			"pattern": "Improved (Fundamentalist|Dragon Cult|Giants' Flame|Godslayer|Bestial|Frenzied Flame|Dragon Communion) Incantations",
 			"stackable": true,
-			"effect": "Increases damage of @school incantations by 1.12x",
+			"effect": "Increases damage of @1 incantations by 1.12x",
 			"note": "School names are from memory; check the exact wording in game"
 		},
 		{
@@ -306,23 +306,23 @@
 		},
 		{
 			"name": "Improved weapon type attack power",
-			"pattern": "Improve (?P<weapon>Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals) attack power",
+			"pattern": "Improve (Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals) attack power",
 			"stackable": true,
-			"effect": "Increase damage dealt by @weapon by 1.09x (1.06x for bows)",
+			"effect": "Increase damage dealt by @1 by 1.09x (1.06x for bows)",
 			"note": "Applies to weapon hit AoW (using said weapon). Does not apply to projectile AoW like thunderbolt, even when cast with said weapon type. Weapon type names are Elden Ring's weapon classes; check the exact wording in game"
 		},
 		{
 			"name": "Improved attack power with 3 of a weapon type equipped",
-			"pattern": "Improved Attack Power with 3 (?P<weapon>Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals) Equipped",
+			"pattern": "Improved Attack Power with 3 (Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals) Equipped",
 			"stackable": false,
-			"effect": "Increases damage by @weapon by 1.2x (1.1x for bows)",
+			"effect": "Increases damage by @1 by 1.2x (1.1x for bows)",
 			"note": "Works for damage from all sources. E.g. spells. Weapon type names are Elden Ring's weapon classes; check the exact wording in game"
 		},
 		{
 			"name": "Attack power up against afflicted enemies",
-			"pattern": "Attack power up when facing (?P<status>Frostbite|Poison|Rot) afflicted enemy",
+			"pattern": "Attack power up when facing (Frostbite|Poison|Rot) afflicted enemy",
 			"stackable": false,
-			"effect": "Increases damage by 1.1x towards targets suffering @status"
+			"effect": "Increases damage by 1.1x towards targets suffering @1"
 		},
 		{
 			"name": "Frostbite in vicinity conceals self",
@@ -363,9 +363,9 @@
 		},
 		{
 			"name": "Elemental damage negation up",
-			"pattern": "(?P<element>Magic|Fire|Lightning|Holy) Damage Negation Up",
+			"pattern": "(Magic|Fire|Lightning|Holy) Damage Negation Up",
 			"stackable": true,
-			"effect": "Increases @element damage negation by 10%"
+			"effect": "Increases @1 damage negation by 10%"
 		},
 		{
 			"name": "Improved damage negation at low HP",
@@ -527,16 +527,16 @@
 		},
 		{
 			"name": "HP restoration after weapon type attacks",
-			"pattern": "HP restoration after (?P<weapon>Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals) attacks",
+			"pattern": "HP restoration after (Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals) attacks",
 			"stackable": false,
-			"effect": "Restores 15 HP with continuous @weapon attacks",
+			"effect": "Restores 15 HP with continuous @1 attacks",
 			"note": "Amount of healing doesn't seem to change based on attack / weapon type. Weapon type names are Elden Ring's weapon classes; check the exact wording in game"
 		},
 		{
 			"name": "FP restoration after weapon type attacks",
-			"pattern": "FP restoration after (?P<weapon>Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals) attacks",
+			"pattern": "FP restoration after (Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals) attacks",
 			"stackable": false,
-			"effect": "Restores 2 FP with continuous @weapon attacks",
+			"effect": "Restores 2 FP with continuous @1 attacks",
 			"note": "Amount of healing doesn't seem to change based on attack / weapon type. Weapon type names are Elden Ring's weapon classes; check the exact wording in game"
 		},
 		{

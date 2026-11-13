@@ -21,7 +21,8 @@ def read_text(image: np.ndarray, engine: OcrEngine) -> list[OcrLine]:
         for line in lines:
             line.y /= f
             if line.box is not None:
-                line.box = tuple(round(v / f) for v in line.box)
+                x, y, w, h = line.box
+                line.box = (round(x / f), round(y / f), round(w / f), round(h / f))
     return lines
 
 

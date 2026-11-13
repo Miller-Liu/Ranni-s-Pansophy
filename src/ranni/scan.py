@@ -16,8 +16,8 @@ import numpy as np
 from ranni.ocr import read_text
 from ranni.ocr.engine import OcrEngine, OcrLine
 from ranni.relics import find_relics, find_selected
-from ranni.scoring import Build, Score, known_effects, score_relic
-from ranni.scoring.match import FoundEffect, match_effects
+from ranni.effects import EffectManager, Match
+from ranni.scoring import Score, Scorer
 from ranni.tracking import TileMemory
 from ranni.types import Box
 
@@ -28,14 +28,14 @@ class Scene:
     tiles: list[Box]  # relic tiles (the big icon in the details panel is not a tile)
     selected: int | None = None  # index into tiles of the glowing (selected) tile
     details_icon: Box | None = None  # the big relic icon in the details panel
-    effects: list[FoundEffect] = field(default_factory=list)  # the selected relic's known effects
+    effects: list[Match] = field(default_factory=list)  # the selected relic's effects
     score: Score | None = None  # None: no details panel seen (or no OCR)
     tile_labels: dict[int, str] = field(default_factory=dict)  # tile index -> remembered score text
     lines: list[OcrLine] = field(default_factory=list)  # everything OCR read
     timings: dict[str, float] = field(default_factory=dict)  # step -> ms
 
 
-def scan(image: np.ndarray, engine: OcrEngine | None, builds: list[Build],
+def scan(image: np.ndarray, engine: OcrEngine | None, manager: EffectManager, scorer: Scorer | None,
          memory: TileMemory | None = None) -> Scene:
     timings = {}
     t = time.perf_counter()
@@ -52,11 +52,11 @@ def scan(image: np.ndarray, engine: OcrEngine | None, builds: list[Build],
     lines = read_text(image, engine) if engine is not None else []
     lap("read text")
 
-    effects = match_effects(lines, known_effects(builds))
+    effects = manager.match_lines(lines)
     icon = _details_icon(boxes, lines)
     tiles = [b for b in boxes if b != icon]
     selected = find_selected(image, tiles)
-    score = score_relic([e.name for e in effects], builds) if builds and (icon or effects) else None
+    score = scorer.score([e.text for e in effects]) if scorer and (icon or effects) else None
     lap("score")
 
     labels = {}
@@ -82,7 +82,7 @@ def score_text(score: Score) -> str:
 def summary(score: Score) -> str:
     """One line for the details panel, e.g. 'Score 12 (Ironeye bleed)'."""
     if score.total is None:
-        return "Forbidden by every build" if score.forbidden_by else "No builds"
+        return "Ruled out by every character" if score.forbidden_by else "No tier lists"
     text = f"Score {score.total:g} ({score.build})"
     if score.forbidden_by:
         text += f"  - ruled out: {', '.join(score.forbidden_by)}"

@@ -28,14 +28,15 @@ Poise +3
 Increased maximum HP
 Increased maximum FP
 Increased maximum Stamina
-Improved [Status] Resistance
+Improved Poison Resistance
+Improved Death Blight Resistance
 Max FP Up with 3+ Staves Equipped
 Max FP Up with 3+ Sacred Seals Equipped
 Max HP Up with 3+ Small Shields Equipped
 Max HP Up with 3+ Medium Shields Equipped
 Max HP Up with 3+ Greatshields Equipped
-Starting Weapon deals [element] Damage
-Stating armament inflicts "x" status
+Starting Weapon deals Fire Damage
+Stating armament inflicts Blood Loss status
 Change compatible armament skill to [xxx] at start of expedition
 [Consumable] in possession at start of expedition
 Small pouch in possession at start of expedition
@@ -47,13 +48,17 @@ Critical Hits Earn Runes
 Attack power permanently increased for each evergaol prisoner defeated
 Max FP increased for each Sorcerer's Rise unlocked
 Attack power up after defeating a Night Invader
-(Huge) Rune discount for shop purchases while on expedition
+Rune discount for shop purchases while on expedition
+Huge Rune discount for shop purchases while on expedition
 Treasure marked upon map
 Taking attacks improves attack power
-Physical Attack Up +0/1/2
+Physical Attack Up
+Physical Attack Up +1
+Physical Attack Up +2
 Improved Melee Attack Power
 Improved Skill Attack Power
-Magic/Fire/Lightning/Holy Attack Up +0/1/2
+Magic Attack Up
+Holy Attack Up +2
 Improved stance breaking when two handing
 Improved stance breaking while wielding two armaments
 Switching Weapons Adds an Affinity Attack
@@ -64,25 +69,29 @@ Attack power increases after using grease items
 Improved Initial Standard Attack
 Improved Guard Counters
 Guard counter is given a boost based on current HP
-Improved Critical Hits +0/1
-Improved Throwing Pot/Knife/Stone/Perfuming Arts Damage
-Improved [Spell School] Sorcery/Incantation
+Improved Critical Hits
+Improved Critical Hits +1
+Improved Throwing Knife Damage
+Improved Perfuming Arts Damage
+Improved Glintblade Sorcery
+Improved Dragon Cult Incantations
 Improves Roar and Breath attacks
-Improve [Weapon Type] attack power
-Improved Attack Power with 3 [Weapon Type] Equipped
-Attack power up when facing frostbite/poison/rot afflicted enemy
+Improve Katanas attack power
+Improved Attack Power with 3 Heavy Thrusting Swords Equipped
+Attack power up when facing Poison afflicted enemy
 Frostbite in Vicinity Conceals Self
 Poison & Rot in Vicinity Increases Attack Power
 Status Ailment Gauges Slowly Increase Attack Power
 Attacks Inflict Rot When Damage Is Taken
 Improved Physical Damage Negation
-Magic/Fire/Lightning/Holy Damage Negation Up
+Lightning Damage Negation Up
 Improved Damage Negation at Low HP
 Draw enemy attention while guarding
 Improved Poise & Damage Negation When Knocked Back by Damage
 Occasionally Nullify Attacks When Damage Negation is Lowered
-Character Skill Cooldown +1/2/3
-Ultimate Art Gauge +1/2/3
+Character Skill Cooldown +1
+Character Skill Cooldown +3
+Ultimate Art Gauge +2
 Partial HP Restoration upon Post-Damage Attacks
 Slowly restore HP for self and nearby allies when HP is low
 Art gauge fills moderately upon critical hit
@@ -99,9 +108,10 @@ FP Restoration upon Successive Attacks
 HP Recovery From Successful Guarding
 Defeating enemies fills more of the Art gauge
 Defeating enemies restores HP for allies but not for self
-Stamina Recovery upon Landing Attacks +0/+1
-HP restoration after [Weapon type] attacks
-FP restoration after [Weapon type] attacks
+Stamina Recovery upon Landing Attacks
+Stamina Recovery upon Landing Attacks +1
+HP restoration after Daggers attacks
+FP restoration after Greatbows attacks
 HP Restoration upon Thrusting Counterattack
 [Wylder] Art gauge is greatly filled when ability is activated
 [Wylder] Art activation spreads fire in the area
@@ -140,4 +150,4 @@ Improved Poise Near Totem Stela
 [Undertaker] Activating Ultimate Art increases attack power
 [Undertaker] Attack power increases by landing the final blow of a chain attack
 [Undertaker] Physical attacks boosted while assist effect from incantation is active for self
-[Undertaker] Contact with allies restores their HP while Ultimate Art is activated"
+[Undertaker] Contact with allies restores their HP while Ultimate Art is activated

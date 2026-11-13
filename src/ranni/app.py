@@ -20,15 +20,16 @@ import traceback
 from pathlib import Path
 
 from ranni.capture import open_capture
+from ranni.effects import EffectManager
 from ranni.hotkey import MOD_ALT, MOD_CONTROL, VK_END, VK_SPACE, Hotkeys
 from ranni.ocr import default_engine
 from ranni.overlay import Overlay
 from ranni.scan import scan
-from ranni.scoring import Build
+from ranni.scoring import Scorer
 from ranni.tracking import TileMemory
 
 
-def run(builds: list[Build], capture_kind: str = "auto", interval: float = 0.25, show_text_boxes: bool = True) -> None:
+def run(manager: EffectManager, scorer: Scorer | None, capture_kind: str = "auto", interval: float = 0.25, show_text_boxes: bool = True) -> None:
     _make_dpi_aware()  # before any window or capture, so all coordinates are real pixels
     overlay = Overlay(show_text_boxes)
     if not overlay.hidden_from_capture:
@@ -46,7 +47,7 @@ def run(builds: list[Build], capture_kind: str = "auto", interval: float = 0.25,
     hotkeys.start()
     for error in hotkeys.errors:
         print("warning:", error)
-    scanner = threading.Thread(target=_scan_loop, args=(builds, capture_kind, interval, live, stop, results),
+    scanner = threading.Thread(target=_scan_loop, args=(manager, scorer, capture_kind, interval, live, stop, results),
                                daemon=True, name="scanner")
     scanner.start()
     signal.signal(signal.SIGINT, lambda *_: events.put("quit"))  # Ctrl+C in the console
@@ -87,7 +88,7 @@ def run(builds: list[Build], capture_kind: str = "auto", interval: float = 0.25,
         overlay.root.destroy()
 
 
-def _scan_loop(builds, capture_kind, interval, live, stop, results) -> None:
+def _scan_loop(manager, scorer, capture_kind, interval, live, stop, results) -> None:
     capture = engine = None
     memory = TileMemory()
     try:
@@ -105,7 +106,7 @@ def _scan_loop(builds, capture_kind, interval, live, stop, results) -> None:
                         print(f"OCR unavailable ({error}); showing tiles only")
                 frame = capture.grab()
                 grabbed = time.perf_counter()
-                scene = scan(frame, engine, builds, memory)
+                scene = scan(frame, engine, manager, scorer, memory)
                 scene.timings = {"capture": (grabbed - started) * 1000, **scene.timings}
                 results.put(scene)
             except Exception as error:

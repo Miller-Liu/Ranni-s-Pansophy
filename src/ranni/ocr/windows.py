@@ -11,10 +11,10 @@ import asyncio
 
 import cv2
 import numpy as np
-from winrt.windows.globalization import Language
-from winrt.windows.graphics.imaging import BitmapPixelFormat, SoftwareBitmap
-from winrt.windows.media.ocr import OcrEngine
-from winrt.windows.storage.streams import DataWriter
+from winrt.windows.globalization import Language  # pyright: ignore[reportMissingImports]  (Windows only: not installed on the Mac)
+from winrt.windows.graphics.imaging import BitmapPixelFormat, SoftwareBitmap  # pyright: ignore[reportMissingImports]  (Windows only: not installed on the Mac)
+from winrt.windows.media.ocr import OcrEngine  # pyright: ignore[reportMissingImports]  (Windows only: not installed on the Mac)
+from winrt.windows.storage.streams import DataWriter  # pyright: ignore[reportMissingImports]  (Windows only: not installed on the Mac)
 
 from ranni.ocr.engine import OcrLine
 
@@ -24,7 +24,7 @@ class WindowsOcr:
 
     def __init__(self, language: str = "en-US"):
         try:
-            from winrt.runtime import ApartmentType, init_apartment
+            from winrt.runtime import ApartmentType, init_apartment  # pyright: ignore[reportMissingImports]  (Windows only: not installed on the Mac)
 
             init_apartment(ApartmentType.MULTI_THREADED)  # needed on threads pywinrt didn't set up
         except Exception:

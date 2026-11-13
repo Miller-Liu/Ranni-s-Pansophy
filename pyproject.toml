@@ -29,6 +29,9 @@ ranni = "ranni.cli:main"
 [dependency-groups]
 dev = ["pytest>=8.0"]
 
+[tool.pyright]
+pythonPlatform = "Windows"  # the only target; makes ctypes.windll etc. known when checking on the Mac
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 

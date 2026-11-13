@@ -39,9 +39,9 @@ uv run ranni scan "samples\End Screen #1.jpg" --debug
 Expected:
 - `5 tiles, selected: #0`
 - under **text read**: the lines on screen, including `Polished Burning Scene`, `Improved Dragon Cult Incantations`, `Faith +1`
-- under **effects recognized**: `Improved Dragon Cult Incantations +7`, `Faith +1 +3`
-- `Score 10 (Faith caster) - ruled out: Ironeye bleed` (from the example `settings\builds.json`)
-- open `debug\End Screen #1\scene.png`: tiles boxed, the selected one yellow with `10`, `+7` / `+3` next to the effects
+- under **effects recognized**: `Improved Dragon Cult Incantations +8`, `Faith +1 +3`
+- `Score 11 (Revenant) - ruled out: Ironeye` (from the example `settings\builds.json`)
+- open `debug\End Screen #1\scene.png`: tiles boxed, the selected one yellow with `11`, `+8` / `+3` next to the effects
 
 Also try `"samples\Small Jar #1.webp"` and `"samples\Small Jar #3.png"`.
 
@@ -74,19 +74,21 @@ Clicks should go through the overlay to whatever is underneath.
 
 ## 5. Your builds
 
-Edit `settings\builds.json`. Effect names must match the game's text (small OCR differences are
-tolerated; numbers must match exactly):
+Edit `settings\builds.json`: one tier list per character. Effects are written as the game shows them
+(the official text, e.g. `Vigor +2`; case and spacing don't matter):
 
 ```json
 {
-  "Build name": {
-    "scores": {"Effect as shown in game": 5, "Another effect": 2},
-    "forbid": ["An effect that rules this build out"]
+  "Revenant": {
+    "8": ["Improved Dragon Cult Incantations"],
+    "3": ["Faith +1"],
+    "-1": ["An effect that rules this character out"]
   }
 }
 ```
 
-A relic's score = the best total over builds that don't forbid any of its effects.
+A relic's score for a character = the sum of its effects' tiers (unlisted = 0); any -1 effect rules
+that character out. The relic shows the best character's score.
 
 ## If something goes wrong
 
