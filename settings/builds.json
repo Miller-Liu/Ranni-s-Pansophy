@@ -1,19 +1,32 @@
 {
-  "Ironeye": {
-    "10": ["[Ironeye] Extends duration of weak point"],
-    "7": ["Stating armament inflicts Blood Loss status"],
-    "5": ["Improved Critical Hits"],
-    "1": ["Improved Blood Loss Resistance"],
-    "-1": ["Improved Dragon Cult Incantations"]
-  },
-  "Revenant": {
-    "8": ["Improved Dragon Cult Incantations"],
-    "6": ["Improved Bestial Incantations"],
-    "4": ["Improved Fundamentalist Incantations"],
-    "3": ["Faith +1"]
-  },
-  "Guardian": {
-    "6": ["HP Recovery From Successful Guarding"],
-    "2": ["Lightning Pots in possession at start of expedition"]
+  "Duchess": {
+    "Favorite Build": {
+      "normal effect": {
+        "[Duchess] Dagger chain attack reprises  event upon nearby enemies" : 10,
+        "[Duchess] Improved Character Skill Attack Power": 10,
+        "Improve Daggers Attack Power": 9,
+        "Magic Attack Up +2": 9,
+        "Max FP increased for each Sorcerer's Rise unlocked": 9,
+        "Stamina Recovery upon Landing Attacks": 8,
+        "FP Restoration upon Successive Attacks": 8,
+        "FP restoration after Dagger Attacks": 8,
+        "Attack power up after defeating a Night Invader": 8,
+        "Attack power permanently increased for each evergaol prisoner defeated": 7,
+        "Increased Maximum FP": 7,
+        "Magic Attack Up +1": 7,
+        "Magic Attack Up": 6
+      },
+      "deep effect": {
+        "Dormant Power Helps Discover @weapon": -1
+      },
+      "deep curse": {
+        "Reduced Vigor and Arcane": 0,
+        "Reduced Flask HP Restoration": -1,
+        "Ultimate Art Charging Impaired": -1,
+        "Taking Damage Causes Sleep Buildup": -2,
+        "Taking Damage Causes Madness Buildup": -2,
+        "Reduced Rune Acquisition": -2
+      }
+    }
   }
 }

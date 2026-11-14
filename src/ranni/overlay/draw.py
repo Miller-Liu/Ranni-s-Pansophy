@@ -35,8 +35,8 @@ def draw_scene(image: np.ndarray, scene: Scene) -> np.ndarray:
             if e.box is None:
                 continue
             x, y, w, h = e.box
-            pts = scene.score.points.get(e.text)
-            text = f"+{pts:g}" if pts is not None else "forbidden"
+            pts = scene.score.points.get(e.match.official_text)
+            text = f"{pts:+g}" if pts is not None else "ruled out"
             _badge(out, text, (x + w + round(10 * s), y), 0.7 * s, GREEN if pts else WHITE)
         anchor = scene.details_icon or (scene.effects[0].box if scene.effects else None)
         if anchor is not None:
@@ -45,7 +45,7 @@ def draw_scene(image: np.ndarray, scene: Scene) -> np.ndarray:
     return out
 
 
-def _badge(img: np.ndarray, text: str, origin: tuple[int, int], scale: float, color) -> None:
+def _badge(img: np.ndarray, text: str, origin: tuple[int, int], scale: float, color: tuple[int, int, int]) -> None:
     (tw, th), base = cv2.getTextSize(text, FONT, scale, max(1, round(2 * scale)))
     x, y = origin
     cv2.rectangle(img, (x, y), (x + tw + 8, y + th + base + 8), (20, 20, 20), -1)

@@ -17,16 +17,15 @@ import signal
 import threading
 import time
 import traceback
-from pathlib import Path
 
-from ranni.capture import open_capture
-from ranni.effects import EffectManager
-from ranni.hotkey import MOD_ALT, MOD_CONTROL, VK_END, VK_SPACE, Hotkeys
-from ranni.ocr import default_engine
-from ranni.overlay import Overlay
-from ranni.scan import scan
-from ranni.scoring import Scorer
-from ranni.tracking import TileMemory
+from ranni.screen.capture import open_capture
+from ranni.relics.manager import EffectManager
+from ranni.overlay.hotkeys import MOD_ALT, MOD_CONTROL, VK_END, VK_SPACE, Hotkeys
+from ranni.screen.ocr import default_engine
+from ranni.overlay.window import Overlay
+from ranni.scan import Scene, scan
+from ranni.relics.builds import Scorer
+from ranni.screen.tracking import TileMemory
 
 
 def run(manager: EffectManager, scorer: Scorer | None, capture_kind: str = "auto", interval: float = 0.25, show_text_boxes: bool = True) -> None:
@@ -37,7 +36,7 @@ def run(manager: EffectManager, scorer: Scorer | None, capture_kind: str = "auto
               "Ranni may detect its own boxes")
 
     events: queue.Queue[str] = queue.Queue()
-    results: queue.Queue = queue.Queue()
+    results: queue.Queue[Scene | str] = queue.Queue()  # a finished scan, or an error message
     live, stop = threading.Event(), threading.Event()
 
     hotkeys = Hotkeys([
@@ -88,7 +87,8 @@ def run(manager: EffectManager, scorer: Scorer | None, capture_kind: str = "auto
         overlay.root.destroy()
 
 
-def _scan_loop(manager, scorer, capture_kind, interval, live, stop, results) -> None:
+def _scan_loop(manager: EffectManager, scorer: Scorer | None, capture_kind: str, interval: float,
+               live: threading.Event, stop: threading.Event, results: queue.Queue[Scene | str]) -> None:
     capture = engine = None
     memory = TileMemory()
     try:

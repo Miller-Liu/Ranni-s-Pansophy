@@ -8,6 +8,7 @@ Uses the English OCR language pack, or else the user's profile languages
 from __future__ import annotations
 
 import asyncio
+from typing import Any
 
 import cv2
 import numpy as np
@@ -16,7 +17,7 @@ from winrt.windows.graphics.imaging import BitmapPixelFormat, SoftwareBitmap  # 
 from winrt.windows.media.ocr import OcrEngine  # pyright: ignore[reportMissingImports]  (Windows only: not installed on the Mac)
 from winrt.windows.storage.streams import DataWriter  # pyright: ignore[reportMissingImports]  (Windows only: not installed on the Mac)
 
-from ranni.ocr.engine import OcrLine
+from ranni.screen.ocr import OcrLine
 
 
 class WindowsOcr:
@@ -61,5 +62,5 @@ class WindowsOcr:
         return lines
 
 
-async def _wait(operation):
+async def _wait(operation: Any) -> Any:  # a WinRT async operation (untyped)
     return await operation

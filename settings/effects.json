@@ -2,21 +2,21 @@
 	"Stat boost": [
 		{
 			"name": "Increase stat",
-			"pattern": "(Vigor|Mind|Endurance|Strength|Dexterity|Intelligence|Faith|Arcane|Poise) \\+(1|2|3)",
+			"pattern": "(?P<stat>Vigor|Mind|Endurance|Strength|Dexterity|Intelligence|Faith|Arcane|Poise) \\+(1|2|3)",
 			"stackable": true,
-			"effect": {
+			"description": {
 				"vigor": "Increase Maximum HP by [20, 40, 60]",
 				"mind": "Increase Maximum FP by [5, 10, 15]",
 				"endurance": "Increase Maximum Stamina by [2, 4, 6]",
 				"poise": "Increase Poise by [0.95, 0.9, 0.85]",
-				"default": "Increase @1 by [1, 2, 3]"
+				"default": "Increase @stat by [1, 2, 3]"
 			}
 		},
 		{
 			"name": "Increase stat (Dark Night of the Fathom/Wise/Champion exclusive)",
-			"pattern": "Increased Maximum (HP|FP|Stamina)",
+			"pattern": "Increased Maximum (?P<stat>HP|FP|Stamina)",
 			"stackable": false,
-			"effect": {
+			"description": {
 				"hp": "Increase Maximum HP by 100 (Exclusive to Dark Night of the Fathom)",
 				"fp": "Increase Maximum FP by 25 (Exclusive to Dark Night of the Wise)",
 				"stamina": "Increase Maximum Stamina by 10 (Exclusive to Dark Night of the Champion)"
@@ -24,21 +24,21 @@
 		},
 		{
 			"name": "Improved status resistance",
-			"pattern": "Improved (Poison|Rot|Blood Loss|Frostbite|Sleep|Madness|Death Blight) Resistance",
+			"pattern": "Improved (?P<status>Poison|Rot|Blood Loss|Frostbite|Sleep|Madness|Death Blight) Resistance",
 			"stackable": true,
-			"effect": "Increase @1 resistance by 75"
+			"description": "Increase @status resistance by 75"
 		},
 		{
 			"name": "Max FP up with 3+ Staves/Sacred Seals equipped",
 			"pattern": "Max FP Up with 3\\+ (Staves|Sacred Seals) Equipped",
 			"stackable": false,
-			"effect": "Increase Maximum FP by 50"
+			"description": "Increase Maximum FP by 50"
 		},
 		{
 			"name": "Max HP up with 3+ Small/Medium/Greatshields equipped",
 			"pattern": "Max HP Up with 3\\+ (Small Shields|Medium Shields|Greatshields) Equipped",
 			"stackable": false,
-			"effect": "Increase Maximum HP by 200"
+			"description": "Increase Maximum HP by 200"
 		}
 	],
 	"Start of game": [
@@ -46,14 +46,14 @@
 			"name": "Starting weapon deals elemental damage",
 			"pattern": "Starting Weapon deals (Magic|Fire|Lightning|Holy) Damage",
 			"stackable": false,
-			"effect": "Decreases starting weapon's physical AP and add elemental AP",
+			"description": "Decreases starting weapon's physical AP and add elemental AP",
 			"note": "Does not work with \"Starting Armament Inflict Status\""
 		},
 		{
 			"name": "Stating armament inflict status",
-			"pattern": "Stating armament inflicts (Poison|Blood Loss|Frostbite) status",
+			"pattern": "Stating armament inflicts (?P<status>Poison|Blood Loss|Frostbite) status",
 			"stackable": false,
-			"effect": {
+			"description": {
 				"blood loss": "Decreases starting weapon's damage by 0.85x and adds 25 blood loss buildup",
 				"poison": "Decreases starting weapon's damage by 0.85x and adds 35 poison buildup",
 				"frostbite": "Decreases starting weapon's damage by 0.85x and adds 35 frost buildup"
@@ -64,25 +64,25 @@
 			"name": "Change compatible armament skill",
 			"pattern": "Change compatible armament skill to ([^\\d]+) at start of expedition",
 			"stackable": false,
-			"effect": ""
+			"description": ""
 		},
 		{
 			"name": "Start with small pouch",
 			"pattern": "Small pouch in possession at start of expedition",
 			"stackable": true,
-			"effect": ""
+			"description": ""
 		},
 		{
 			"name": "Start with stonesword",
 			"pattern": "Stonesword in possession at start of expedition",
 			"stackable": false,
-			"effect": ""
+			"description": ""
 		},
 		{
 			"name": "Start with consummable",
 			"pattern": "([^\\d]+) in possession at start of expedition",
 			"stackable": true,
-			"effect": ""
+			"description": ""
 		}
 	],
 	"Exploration": [
@@ -90,63 +90,63 @@
 			"name": "Flask also heals allies",
 			"pattern": "Flask Also Heals Allies",
 			"stackable": false,
-			"effect": "Heals nearby allies for 50% flask HP"
+			"description": "Heals nearby allies for 50% flask HP"
 		},
 		{
 			"name": "Item confer effect to all nearby allies",
 			"pattern": "Item confer effect to all nearby allies",
 			"stackable": false,
-			"effect": ""
+			"description": ""
 		},
 		{
 			"name": "Increase rune acquisition for self and allies",
 			"pattern": "Increase rune acquisition for self and allies",
 			"stackable": true,
-			"effect": "1.035x rune gain for self and allies"
+			"description": "1.035x rune gain for self and allies"
 		},
 		{
 			"name": "Critical hits earn runes",
 			"pattern": "Critical Hits Earn Runes",
 			"stackable": false,
-			"effect": "Gain 600 runes on critical hits"
+			"description": "Gain 600 runes on critical hits"
 		},
 		{
 			"name": "Attack power permanently increased for each evergaol prisoner defeated",
 			"pattern": "Attack power permanently increased for each evergaol prisoner defeated",
 			"stackable": false,
-			"effect": "Increases damage by 1.05x per Evergaol boss"
+			"description": "Increases damage by 1.05x per Evergaol boss"
 		},
 		{
 			"name": "Max FP increased for each Sorcerer's Rise unlocked",
 			"pattern": "Max FP increased for each Sorcerer's Rise unlocked",
 			"stackable": false,
-			"effect": "Increases max FP by 1.18x for each Sorcerer's Rise unlocked"
+			"description": "Increases max FP by 1.18x for each Sorcerer's Rise unlocked"
 		},
 		{
 			"name": "Attack power permanently increased for each night invader defeated",
 			"pattern": "Attack power up after defeating a Night Invader",
 			"stackable": false,
-			"effect": "Increases damage by 1.07x per invader"
+			"description": "Increases damage by 1.07x per invader"
 		},
 		{
 			"name": "(Normal) Rune discount for shop purchases",
 			"pattern": "Rune discount for shop purchases while on expedition",
 			"stackable": false,
-			"effect": "Provides a 10% discount at merchants",
+			"description": "Provides a 10% discount at merchants",
 			"note": "Only stacks with huge rune discount for shop purchases"
 		},
 		{
 			"name": "(Huge) rune discount for shop purchases",
 			"pattern": "Huge Rune discount for shop purchases while on expedition",
 			"stackable": false,
-			"effect": "Provides a 20% discount at merchants",
+			"description": "Provides a 20% discount at merchants",
 			"note": "Only stacks with normal rune discount for shop purchases; Exclusive to Night of the Demon"
 		},
 		{
 			"name": "Treasure marked upon map",
 			"pattern": "Treasure marked upon map",
 			"stackable": false,
-			"effect": "Reveals hidden chest locations"
+			"description": "Reveals hidden chest locations"
 		}
 	],
 	"Offensive": [
@@ -154,202 +154,202 @@
 			"name": "Taking attacks improves attack power",
 			"pattern": "Taking attacks improves attack power",
 			"stackable": false,
-			"effect": "15% damage buff after taking a hit (took damage), for 10s, refreshing when getting hit again"
+			"description": "15% damage buff after taking a hit (took damage), for 10s, refreshing when getting hit again"
 		},
 		{
 			"name": "Physical attack up",
 			"pattern": "Physical Attack Up",
 			"stackable": true,
-			"effect": "Increases physical damage by 1.04x"
+			"description": "Increases physical damage by 1.04x"
 		},
 		{
 			"name": "Physical attack up +1/2",
 			"pattern": "Physical Attack Up \\+(1|2)",
 			"stackable": true,
-			"effect": "Increases physical damage by [1.05x, 1.06x]"
+			"description": "Increases physical damage by [1.05x, 1.06x]"
 		},
 		{
 			"name": "Improved melee attack power",
 			"pattern": "Improved Melee Attack Power",
 			"stackable": true,
-			"effect": "Increases all attack power by 1.05x. Affects both weapon and skills.",
+			"description": "Increases all attack power by 1.05x. Affects both weapon and skills.",
 			"note": "Exclusive to Will of the Balancers and Will of Balance"
 		},
 		{
 			"name": "Improved skill attack power",
 			"pattern": "Improved Skill Attack Power",
 			"stackable": true,
-			"effect": "Increases skill attack power by 1.15x",
+			"description": "Increases skill attack power by 1.15x",
 			"note": "Exclusive to Will of the Balancers and Will of Balance"
 		},
 		{
 			"name": "Elemental attack up",
-			"pattern": "(Magic|Fire|Lightning|Holy) Attack Up",
+			"pattern": "(?P<element>Magic|Fire|Lightning|Holy) Attack Up",
 			"stackable": true,
-			"effect": "Increases @1 damage by 1.045x"
+			"description": "Increases @element damage by 1.045x"
 		},
 		{
 			"name": "Elemental attack up +1/2",
-			"pattern": "(Magic|Fire|Lightning|Holy) Attack Up \\+(1|2)",
+			"pattern": "(?P<element>Magic|Fire|Lightning|Holy) Attack Up \\+(1|2)",
 			"stackable": true,
-			"effect": "Increases @1 damage by [1.055x, 1.065x]"
+			"description": "Increases @element damage by [1.055x, 1.065x]"
 		},
 		{
 			"name": "Improved stance breaking when two handing",
 			"pattern": "Improved stance breaking when two handing",
 			"stackable": true,
-			"effect": "Increases poise damage by 1.05x when 2 handing the weapon",
+			"description": "Increases poise damage by 1.05x when 2 handing the weapon",
 			"note": "Does not apply to bows."
 		},
 		{
 			"name": "Improved stance breaking while wielding two armaments",
 			"pattern": "Improved stance breaking while wielding two armaments",
 			"stackable": true,
-			"effect": "Increases poise damage by 1.05x when powerstancing (dual wielding 2 weapons of the same type)",
+			"description": "Increases poise damage by 1.05x when powerstancing (dual wielding 2 weapons of the same type)",
 			"note": "Can confirm applies to ground L1 attack and jump L1."
 		},
 		{
 			"name": "Switching weapons adds an affinity attack",
 			"pattern": "Switching Weapons Adds an Affinity Attack",
 			"stackable": false,
-			"effect": "Adds 12 magic/fire/lightning/holy AP (random) for 10 seconds",
+			"description": "Adds 12 magic/fire/lightning/holy AP (random) for 10 seconds",
 			"note": "Exclusive to Night of the Lord."
 		},
 		{
 			"name": "Boosts attack power of added affinity attacks",
 			"pattern": "Boosts Attack Power of Added Affinity Attacks",
 			"stackable": true,
-			"effect": "Increases magic/fire/lightning/holy AP by 1.1x",
+			"description": "Increases magic/fire/lightning/holy AP by 1.1x",
 			"note": "Rounds up. Exclusive to Night of the Lord, Golden Dew, and Dark Night of the Champion. Does not affect sorceries/incants. Works for any elemental damage on weapon, not just weapon buffs"
 		},
 		{
 			"name": "Switching weapons boosts attack power",
 			"pattern": "Switching Weapons Boosts Attack Power",
 			"stackable": false,
-			"effect": "Increases physical damage by 1.1x for 10 seconds",
+			"description": "Increases physical damage by 1.1x for 10 seconds",
 			"note": "Exclusive to Night of the Lord and Fell Omen Fetish."
 		},
 		{
 			"name": "Successive attacks boost attack power",
 			"pattern": "Successive Attacks Boosts Attack Power",
 			"stackable": null,
-			"effect": "Increases damage by 1.05x / 1.065x / 1.09x on successive attacks",
+			"description": "Increases damage by 1.05x / 1.065x / 1.09x on successive attacks",
 			"note": "Exclusive to Glass Necklace"
 		},
 		{
 			"name": "Attack power increases after using grease items",
 			"pattern": "Attack power increases after using grease items",
 			"stackable": false,
-			"effect": "Increases physical damage by 1.1x for 30 seconds",
+			"description": "Increases physical damage by 1.1x for 30 seconds",
 			"note": "Same duration as grease"
 		},
 		{
 			"name": "Improved initial standard attack",
 			"pattern": "Improved Initial Standard Attack",
 			"stackable": true,
-			"effect": "Increases the damage of the first light attack by 1.15x",
+			"description": "Increases the damage of the first light attack by 1.15x",
 			"note": "Applies to 1H/2H R1 chain or paired weapon L1. Does not work for shield poke / rolling attack / jump attack"
 		},
 		{
 			"name": "Improved guard counters",
 			"pattern": "Improved Guard Counters",
 			"stackable": true,
-			"effect": "Increases guard counter damage by 1.17x"
+			"description": "Increases guard counter damage by 1.17x"
 		},
 		{
 			"name": "Guard counter boosted by current HP",
 			"pattern": "Guard counter is given a boost based on current HP",
 			"stackable": false,
-			"effect": "Damage boost varies with HP remaining, and affected by hp boosts.",
+			"description": "Damage boost varies with HP remaining, and affected by hp boosts.",
 			"note": "Add a flat damage = hp/20 to each guard counter hit. benefit from buffs and other damage bonuses"
 		},
 		{
 			"name": "Improved critical hits",
 			"pattern": "Improved Critical Hits",
 			"stackable": null,
-			"effect": "Increases critical hit damage by 1.18x",
+			"description": "Increases critical hit damage by 1.18x",
 			"note": "Only applies to certain parts of critical hit. E.g. on colossal weapon, it only buffs the (stronger) second hit. +0 stack with +1 and +0 can stack with another +0 but +1 can not stack with itself as +1 exclusive to (Dark) Night of the Baron"
 		},
 		{
 			"name": "Improved critical hits +1",
 			"pattern": "Improved Critical Hits \\+1",
 			"stackable": null,
-			"effect": "Increases critical hit damage by 1.23x",
+			"description": "Increases critical hit damage by 1.23x",
 			"note": "Only applies to certain parts of critical hit. E.g. on colossal weapon, it only buffs the (stronger) second hit. +0 stack with +1 and +0 can stack with another +0 but +1 can not stack with itself as +1 exclusive to (Dark) Night of the Baron"
 		},
 		{
 			"name": "Improved throwable damage",
-			"pattern": "Improved (Throwing Pot|Throwing Knife|Throwing Stone|Perfuming Arts) Damage",
+			"pattern": "Improved (?P<item>Throwing Pot|Throwing Knife|Throwing Stone|Perfuming Arts) Damage",
 			"stackable": true,
-			"effect": "Increases @1 damage by 1.15x"
+			"description": "Increases @item damage by 1.15x"
 		},
 		{
 			"name": "Improved sorcery school",
-			"pattern": "Improved (Glintblade|Stonedigger|Carian Sword|Invisibility|Crystalian|Gravity|Thorn) Sorcery",
+			"pattern": "Improved (?P<school>Glintblade|Stonedigger|Carian Sword|Invisibility|Crystalian|Gravity|Thorn) Sorcery",
 			"stackable": true,
-			"effect": "Increases damage of @1 sorceries by 1.12x",
+			"description": "Increases damage of @school sorceries by 1.12x",
 			"note": "School names are from memory; check the exact wording in game"
 		},
 		{
 			"name": "Improved incantation school",
-			"pattern": "Improved (Fundamentalist|Dragon Cult|Giants' Flame|Godslayer|Bestial|Frenzied Flame|Dragon Communion) Incantations",
+			"pattern": "Improved (?P<school>Fundamentalist|Dragon Cult|Giants' Flame|Godslayer|Bestial|Frenzied Flame|Dragon Communion) Incantations",
 			"stackable": true,
-			"effect": "Increases damage of @1 incantations by 1.12x",
+			"description": "Increases damage of @school incantations by 1.12x",
 			"note": "School names are from memory; check the exact wording in game"
 		},
 		{
 			"name": "Improves roar and breath attacks",
 			"pattern": "Improves Roar and Breath attacks",
 			"stackable": true,
-			"effect": "Increases roar / breath damage by 1.15x.",
+			"description": "Increases roar / breath damage by 1.15x.",
 			"note": "Does not work for Raider character skill."
 		},
 		{
 			"name": "Improved weapon type attack power",
-			"pattern": "Improve (Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals) attack power",
+			"pattern": "Improve (?P<weapon>Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals) Attack Power",
 			"stackable": true,
-			"effect": "Increase damage dealt by @1 by 1.09x (1.06x for bows)",
+			"description": "Increase damage dealt by @weapon by 1.09x (1.06x for bows)",
 			"note": "Applies to weapon hit AoW (using said weapon). Does not apply to projectile AoW like thunderbolt, even when cast with said weapon type. Weapon type names are Elden Ring's weapon classes; check the exact wording in game"
 		},
 		{
 			"name": "Improved attack power with 3 of a weapon type equipped",
-			"pattern": "Improved Attack Power with 3 (Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals) Equipped",
+			"pattern": "Improved Attack Power with 3 (?P<weapon>Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals) Equipped",
 			"stackable": false,
-			"effect": "Increases damage by @1 by 1.2x (1.1x for bows)",
+			"description": "Increases damage by @weapon by 1.2x (1.1x for bows)",
 			"note": "Works for damage from all sources. E.g. spells. Weapon type names are Elden Ring's weapon classes; check the exact wording in game"
 		},
 		{
 			"name": "Attack power up against afflicted enemies",
-			"pattern": "Attack power up when facing (Frostbite|Poison|Rot) afflicted enemy",
+			"pattern": "Attack power up when facing (?P<status>Frostbite|Poison|Rot) afflicted enemy",
 			"stackable": false,
-			"effect": "Increases damage by 1.1x towards targets suffering @1"
+			"description": "Increases damage by 1.1x towards targets suffering @status"
 		},
 		{
 			"name": "Frostbite in vicinity conceals self",
 			"pattern": "Frostbite in Vicinity Conceals Self",
 			"stackable": false,
-			"effect": "",
+			"description": "",
 			"note": "Exclusive to (Dark) Night of the Miasma"
 		},
 		{
 			"name": "Poison & rot in vicinity increases attack power",
 			"pattern": "Poison & Rot in Vicinity Increases Attack Power",
 			"stackable": false,
-			"effect": "Increases damage by 1.12x for 20 seconds when poison or rot is triggered in the vicinity",
+			"description": "Increases damage by 1.12x for 20 seconds when poison or rot is triggered in the vicinity",
 			"note": "Exclusive to Night of the Wise"
 		},
 		{
 			"name": "Status ailment gauges slowly increase attack power",
 			"pattern": "Status Ailment Gauges Slowly Increase Attack Power",
 			"stackable": null,
-			"effect": "Having any amount of status ailment gauge increases damage by 1.04x every 20 seconds (10 stacks). Resets after 20s of no status gauge.",
+			"description": "Having any amount of status ailment gauge increases damage by 1.04x every 20 seconds (10 stacks). Resets after 20s of no status gauge.",
 			"note": "Exclusive to Night of Dregs. Buff checks status gauge at fixed 20s intervals: at each 20s mark, if a status gauge is present, it grants an additional buff stack; if guage is not present, all stacks are lost. This means buff can expire <20s after depletion of status gauge."
 		},
 		{
 			"name": "Attacks inflict rot when damage is taken",
 			"pattern": "Attacks Inflict Rot When Damage Is Taken",
 			"stackable": null,
-			"effect": "Adds 25 rot buildup to the weapon for 12 seconds after taking damage",
+			"description": "Adds 25 rot buildup to the weapon for 12 seconds after taking damage",
 			"note": "Exclusive to Night of Dregs"
 		}
 	],
@@ -358,39 +358,39 @@
 			"name": "Improved physical damage negation",
 			"pattern": "Improved Physical Damage Negation",
 			"stackable": true,
-			"effect": "Increases physical damage negation by 10%",
+			"description": "Increases physical damage negation by 10%",
 			"note": "Exclusive to Dark Night of the Miasma"
 		},
 		{
 			"name": "Elemental damage negation up",
-			"pattern": "(Magic|Fire|Lightning|Holy) Damage Negation Up",
+			"pattern": "(?P<element>Magic|Fire|Lightning|Holy) Damage Negation Up",
 			"stackable": true,
-			"effect": "Increases @1 damage negation by 10%"
+			"description": "Increases @element damage negation by 10%"
 		},
 		{
 			"name": "Improved damage negation at low HP",
 			"pattern": "Improved Damage Negation at Low HP",
 			"stackable": true,
-			"effect": "Increases damage negation by 16% when HP is below 40%"
+			"description": "Increases damage negation by 16% when HP is below 40%"
 		},
 		{
 			"name": "Draw enemy attention while guarding",
 			"pattern": "Draw enemy attention while guarding",
 			"stackable": false,
-			"effect": "Increases aggro when holding the block button",
+			"description": "Increases aggro when holding the block button",
 			"note": "Does not guarantee aggro"
 		},
 		{
 			"name": "Improved poise & damage negation when knocked back",
 			"pattern": "Improved Poise & Damage Negation When Knocked Back by Damage",
 			"stackable": false,
-			"effect": "Increases damage negation by 20% and reduces incoming poise damage by 0.8x for 20 seconds"
+			"description": "Increases damage negation by 20% and reduces incoming poise damage by 0.8x for 20 seconds"
 		},
 		{
 			"name": "Occasionally nullify attacks when damage negation is lowered",
 			"pattern": "Occasionally Nullify Attacks When Damage Negation is Lowered",
 			"stackable": false,
-			"effect": "Chance of activation currently unknown",
+			"description": "Chance of activation currently unknown",
 			"note": "Exclusive to the Will of Balance (ED Balancer relic, unreleased)"
 		}
 	],
@@ -399,151 +399,151 @@
 			"name": "Character skill cooldown",
 			"pattern": "Character Skill Cooldown \\+(1|2|3)",
 			"stackable": true,
-			"effect": "Reduces skill cooldown by [0.95x, 0.925x, 0.9x]"
+			"description": "Reduces skill cooldown by [0.95x, 0.925x, 0.9x]"
 		},
 		{
 			"name": "Ultimate art gauge",
 			"pattern": "Ultimate Art Gauge \\+(1|2|3)",
 			"stackable": true,
-			"effect": "Increases ultimate gauge gain by [1.05x, 1.075x, 1.1x]",
+			"description": "Increases ultimate gauge gain by [1.05x, 1.075x, 1.1x]",
 			"note": "Only affects passive Ultimate gauge gain during combat"
 		},
 		{
 			"name": "Partial HP restoration upon post-damage attacks",
 			"pattern": "Partial HP Restoration upon Post-Damage Attacks",
 			"stackable": false,
-			"effect": "Replenishes HP on hit for a short period of time after taking damage",
+			"description": "Replenishes HP on hit for a short period of time after taking damage",
 			"note": "Much stronger healing than other heal on hit effects. Amount of healing varies by attack performed. Does not stack with Hand of Malenia (which will take priority and has great healing effects)."
 		},
 		{
 			"name": "Slowly restore HP when HP is low",
 			"pattern": "Slowly restore HP for self and nearby allies when HP is low",
 			"stackable": false,
-			"effect": "Restores [MaxHP * 0.005] + 1 HP/s for 50 seconds when HP is below 20%",
+			"description": "Restores [MaxHP * 0.005] + 1 HP/s for 50 seconds when HP is below 20%",
 			"note": "Regen stays even after you go above 20% HP"
 		},
 		{
 			"name": "Art gauge fills moderately upon critical hit",
 			"pattern": "Art gauge fills moderately upon critical hit",
 			"stackable": false,
-			"effect": "Increases Ultimate Art Gauge by 5"
+			"description": "Increases Ultimate Art Gauge by 5"
 		},
 		{
 			"name": "HP restored when using cured meats, boluses, etc.",
 			"pattern": "HP restored when using cured meats, medicinal boluses, etc\\.",
 			"stackable": false,
-			"effect": "Restores 50 HP on consumption"
+			"description": "Restores 50 HP on consumption"
 		},
 		{
 			"name": "Art gauge charged from successful guarding",
 			"pattern": "Art gauge charged from successful guarding",
 			"stackable": false,
-			"effect": "Increases Ultimate Art Gauge by 1"
+			"description": "Increases Ultimate Art Gauge by 1"
 		},
 		{
 			"name": "Critical hit boosts stamina recovery speed",
 			"pattern": "Critical Hit Boosts Stamina Recovery Speed",
 			"stackable": false,
-			"effect": "Increases stamina recovery by 10/s for 15 seconds"
+			"description": "Increases stamina recovery by 10/s for 15 seconds"
 		},
 		{
 			"name": "Crossed legs gesture builds up madness",
 			"pattern": "Gesture \"Crossed Legs\" Builds Up Madness",
 			"stackable": false,
-			"effect": "Inflicts 10 madness buildup every 2 seconds",
+			"description": "Inflicts 10 madness buildup every 2 seconds",
 			"note": "Exclusive to (Dark) Night of the Demon"
 		},
 		{
 			"name": "Madness continually recovers FP",
 			"pattern": "Madness Continually Recovers FP",
 			"stackable": false,
-			"effect": "Recovers 2 FP/s for 25 seconds",
+			"description": "Recovers 2 FP/s for 25 seconds",
 			"note": "Exclusive to (Dark) Night of the Demon"
 		},
 		{
 			"name": "Continuous HP recovery",
 			"pattern": "Continuous HP recovery",
 			"stackable": true,
-			"effect": "Recovers 2 HP/s",
+			"description": "Recovers 2 HP/s",
 			"note": "Exclusive to Blessed Iron Coin and Dark Night of the Fathom"
 		},
 		{
 			"name": "Continuous FP recovery",
 			"pattern": "Continuous FP Recovery",
 			"stackable": true,
-			"effect": "Recovers 1 FP/5s",
+			"description": "Recovers 1 FP/5s",
 			"note": "Exclusive to Will of the Balancers"
 		},
 		{
 			"name": "Rot in vicinity causes continuous HP recovery",
 			"pattern": "Rot in Vicinity Causes Continuous HP Recovery",
 			"stackable": null,
-			"effect": "Recovers 0.15% of max HP + 15 HP/s for 15 seconds after rot procs",
+			"description": "Recovers 0.15% of max HP + 15 HP/s for 15 seconds after rot procs",
 			"note": "Exclusive to Night of Dregs"
 		},
 		{
 			"name": "Raised stamina recovery for nearby allies",
 			"pattern": "Raised stamina recovery for nearby allies, but not for self",
 			"stackable": null,
-			"effect": "Increases allies' stamina recovery speed by 4/s"
+			"description": "Increases allies' stamina recovery speed by 4/s"
 		},
 		{
 			"name": "FP restoration upon successive attacks",
 			"pattern": "FP Restoration upon Successive Attacks",
 			"stackable": true,
-			"effect": "Recovers [MaxFP * 0.05] with continuous attacks"
+			"description": "Recovers [MaxFP * 0.05] with continuous attacks"
 		},
 		{
 			"name": "HP recovery from successful guarding",
 			"pattern": "HP Recovery From Successful Guarding",
 			"stackable": false,
-			"effect": "Recovers 16 HP after blocking an attack"
+			"description": "Recovers 16 HP after blocking an attack"
 		},
 		{
 			"name": "Defeating enemies fills more of the art gauge",
 			"pattern": "Defeating enemies fills more of the Art gauge",
 			"stackable": false,
-			"effect": "Increases Ultimate Art Gauge by 5 on each enemy kill"
+			"description": "Increases Ultimate Art Gauge by 5 on each enemy kill"
 		},
 		{
 			"name": "Defeating enemies restores HP for allies",
 			"pattern": "Defeating enemies restores HP for allies but not for self",
 			"stackable": null,
-			"effect": "Allies recover 20 HP on each enemy kill"
+			"description": "Allies recover 20 HP on each enemy kill"
 		},
 		{
 			"name": "Stamina recovery upon landing attacks",
 			"pattern": "Stamina Recovery upon Landing Attacks",
 			"stackable": false,
-			"effect": "Restores 2 stamina with continuous attacks",
+			"description": "Restores 2 stamina with continuous attacks",
 			"note": "Stack with the weaker version. +1 Exclusive to (Dark) Night of the Beast"
 		},
 		{
 			"name": "Stamina recovery upon landing attacks +1",
 			"pattern": "Stamina Recovery upon Landing Attacks \\+1",
 			"stackable": false,
-			"effect": "Restores 3 stamina with continuous attacks",
+			"description": "Restores 3 stamina with continuous attacks",
 			"note": "Stack with the weaker version. +1 Exclusive to (Dark) Night of the Beast"
 		},
 		{
 			"name": "HP restoration after weapon type attacks",
-			"pattern": "HP restoration after (Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals) attacks",
+			"pattern": "HP restoration after (?P<weapon>Dagger|Straight Sword|Greatsword|Colossal Sword|Curved Sword|Curved Greatsword|Katana|Twinblade|Thrusting Sword|Heavy Thrusting Sword|Axe|Greataxe|Hammer|Great Hammer|Flail|Spear|Great Spear|Halberd|Reaper|Whip|Fist|Claw|Colossal Weapon|Torche|Bow|Greatbow|Crossbow|Ballista) Attacks",
 			"stackable": false,
-			"effect": "Restores 15 HP with continuous @1 attacks",
+			"description": "Restores 15 HP with continuous @weapon attacks",
 			"note": "Amount of healing doesn't seem to change based on attack / weapon type. Weapon type names are Elden Ring's weapon classes; check the exact wording in game"
 		},
 		{
 			"name": "FP restoration after weapon type attacks",
-			"pattern": "FP restoration after (Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals) attacks",
+			"pattern": "FP restoration after (?P<weapon>Dagger|Straight Sword|Greatsword|Colossal Sword|Curved Sword|Curved Greatsword|Katana|Twinblade|Thrusting Sword|Heavy Thrusting Sword|Axe|Greataxe|Hammer|Great Hammer|Flail|Spear|Great Spear|Halberd|Reaper|Whip|Fist|Claw|Colossal Weapon|Torche|Bow|Greatbow|Crossbow|Ballista) Attacks",
 			"stackable": false,
-			"effect": "Restores 2 FP with continuous @1 attacks",
+			"description": "Restores 2 FP with continuous @weapon attacks",
 			"note": "Amount of healing doesn't seem to change based on attack / weapon type. Weapon type names are Elden Ring's weapon classes; check the exact wording in game"
 		},
 		{
 			"name": "HP restoration upon thrusting counterattack",
 			"pattern": "HP Restoration upon Thrusting Counterattack",
 			"stackable": false,
-			"effect": "Restores [MaxHP * 0.025] HP on counterhits"
+			"description": "Restores [MaxHP * 0.025] HP on counterhits"
 		}
 	],
 	"Character": [
@@ -551,233 +551,233 @@
 			"name": "[Wylder] Art gauge is greatly filled when ability is activated",
 			"pattern": "\\[Wylder\\] Art gauge is greatly filled when ability is activated",
 			"stackable": false,
-			"effect": "Increased characterSkillGauge by 18"
+			"description": "Increased characterSkillGauge by 18"
 		},
 		{
 			"name": "[Wylder] Art activation spreads fire in the area",
 			"pattern": "\\[Wylder\\] Art activation spreads fire in the area",
 			"stackable": false,
-			"effect": "Ultimate art leaves behind a small area of fire that does DoT."
+			"description": "Ultimate art leaves behind a small area of fire that does DoT."
 		},
 		{
 			"name": "[Wylder] Fiery follow-ups when using character skill (greatsword only)",
 			"pattern": "\\[Wylder\\] Standard attacks enhanced with fiery follow-ups when using Character Skill \\(greatsword only\\)",
 			"stackable": false,
-			"effect": "Allows you to perform a light attack follow up after using claw shot. Adds 12 fire AP to the weapon"
+			"description": "Allows you to perform a light attack follow up after using claw shot. Adds 12 fire AP to the weapon"
 		},
 		{
 			"name": "[Wylder] +1 additional character skill use",
 			"pattern": "\\[Wylder\\] \\+1 additional character skill use",
 			"stackable": false,
-			"effect": ""
+			"description": ""
 		},
 		{
 			"name": "[Guardian] Increased skill duration",
 			"pattern": "\\[Guardian\\] Increased skill duration",
 			"stackable": false,
-			"effect": "Allows you to briefly charge this skill to trigger a much bigger AoE and longer lasting tornado. Can block projectile attacks."
+			"description": "Allows you to briefly charge this skill to trigger a much bigger AoE and longer lasting tornado. Can block projectile attacks."
 		},
 		{
 			"name": "[Guardian] Slowly restores nearby allies HP while Art is active",
 			"pattern": "\\[Guardian\\] Slowly restores nearby allies HP while Art is active",
 			"stackable": false,
-			"effect": "Allies restore [MaxHP * 0.1] + 12 HP/0.5s when ultimate is held"
+			"description": "Allies restore [MaxHP * 0.1] + 12 HP/0.5s when ultimate is held"
 		},
 		{
 			"name": "[Guardian] Creates whirlwind when charging halberd attacks",
 			"pattern": "\\[Guardian\\] Creates whirlwind when charging halberd attacks",
 			"stackable": false,
-			"effect": "Performs a whirlwind attack after using halberd charged heavies"
+			"description": "Performs a whirlwind attack after using halberd charged heavies"
 		},
 		{
 			"name": "[Guardian] Successful guards send out shockwaves while ability is active",
 			"pattern": "\\[Guardian\\] Successful guards send out shockwaves while ability is active",
 			"stackable": false,
-			"effect": "Sends out a shockwave when blocking an attack in the Iron Guard stance. 100 base physical attack"
+			"description": "Sends out a shockwave when blocking an attack in the Iron Guard stance. 100 base physical attack"
 		},
 		{
 			"name": "[Ironeye] Art Charge Activation Adds Poison Effect",
 			"pattern": "\\[Ironeye\\] Art Charge Activation Adds Poison Effect",
 			"stackable": false,
-			"effect": "Charged ultimate deals 300 poison buildup"
+			"description": "Charged ultimate deals 300 poison buildup"
 		},
 		{
 			"name": "[Ironeye] Boosts thrusting counterattacks after executing Art",
 			"pattern": "\\[Ironeye\\] Boosts thrusting counterattacks after executing Art",
 			"stackable": false,
-			"effect": "Increases counterhit damage by 1.2x for 30 seconds"
+			"description": "Increases counterhit damage by 1.2x for 30 seconds"
 		},
 		{
 			"name": "[Ironeye] Extends duration of weak point",
 			"pattern": "\\[Ironeye\\] Extends duration of weak point",
 			"stackable": false,
-			"effect": "Extends weak point duration from 17.5s to 22s"
+			"description": "Extends weak point duration from 17.5s to 22s"
 		},
 		{
 			"name": "[Ironeye] +1 additional character skill use",
 			"pattern": "\\[Ironeye\\] \\+1 additional character skill use",
 			"stackable": false,
-			"effect": ""
+			"description": ""
 		},
 		{
 			"name": "[Duchess] Defeating enemies while Art is active ups attack power",
 			"pattern": "\\[Duchess\\] Defeating enemies while Art is active ups attack power",
 			"stackable": false,
-			"effect": "Increases damage by 1.15x for 30 seconds for each enemy killed while Ultimate is active"
+			"description": "Increases damage by 1.15x for 30 seconds for each enemy killed while Ultimate is active"
 		},
 		{
 			"name": "[Duchess] Improved Character Skill Attack Power",
 			"pattern": "\\[Duchess\\] Improved Character Skill Attack Power",
 			"stackable": false,
-			"effect": "Duchess' Restage does 60% of total damage instead of 50%",
+			"description": "Duchess' Restage does 60% of total damage instead of 50%",
 			"note": "In game testing suggest 20% damage increase"
 		},
 		{
 			"name": "[Duchess] Become difficult to spot and silence footsteps after landing critical from behind",
 			"pattern": "\\[Duchess\\] Become difficult to spot and silence footsteps after landing critical from behind",
 			"stackable": false,
-			"effect": ""
+			"description": ""
 		},
 		{
-			"name": "[Duchess] Successive dagger attack reprises event upon nearby enemies",
-			"pattern": "\\[Duchess\\] Successive dagger attack reprises event upon nearby enemies",
+			"name": "[Duchess] Dagger chain attack reprises event upon nearby enemies",
+			"pattern": "\\[Duchess\\] Dagger chain attack reprises event upon nearby enemies",
 			"stackable": false,
-			"effect": "Deals extra DoT damage after completing a full light attack chain.",
+			"description": "Deals extra DoT damage after completing a full light attack chain.",
 			"note": "~36/39/39% extra damage from 1h/ 2h/ powerstance attack chain"
 		},
 		{
 			"name": "[Raider] Duration of Ultimate Art extended",
 			"pattern": "\\[Raider\\] Duration of Ultimate Art extended",
 			"stackable": false,
-			"effect": "Increases duration of the ultimate from 20 to 30 seconds"
+			"description": "Increases duration of the ultimate from 20 to 30 seconds"
 		},
 		{
 			"name": "[Raider] Damage taken while using Character Skill improves attack power and stamina",
 			"pattern": "\\[Raider\\] Damage taken while using Character Skill improves attack power and stamina",
 			"stackable": false,
-			"effect": "Increases damage by 1.1x and maximum stamina by 1.2x for 20 seconds"
+			"description": "Increases damage by 1.1x and maximum stamina by 1.2x for 20 seconds"
 		},
 		{
 			"name": "Defeating enemies near Totem Stela restores HP",
 			"pattern": "Defeating enemies near Totem Stela restores HP",
 			"stackable": false,
-			"effect": "Restores [MaxHP * 0.5] on each enemy kill in the vicinity of Raider's ultimate"
+			"description": "Restores [MaxHP * 0.5] on each enemy kill in the vicinity of Raider's ultimate"
 		},
 		{
 			"name": "Improved Poise Near Totem Stela",
 			"pattern": "Improved Poise Near Totem Stela",
 			"stackable": false,
-			"effect": "Reduces incoming poise damage by 0.1x while in the vicinity of Raider's ultimate"
+			"description": "Reduces incoming poise damage by 0.1x while in the vicinity of Raider's ultimate"
 		},
 		{
 			"name": "[Revenant] Expend own HP to fully heal nearby allies when activating Art",
 			"pattern": "\\[Revenant\\] Expend own HP to fully heal nearby allies when activating Art",
 			"stackable": false,
-			"effect": "Decreases current HP by 50% on ultimate usage to fully heal allies' HP"
+			"description": "Decreases current HP by 50% on ultimate usage to fully heal allies' HP"
 		},
 		{
 			"name": "[Revenant] Trigger ghostflame explosion during Ultimate Art activation",
 			"pattern": "\\[Revenant\\] Trigger ghostflame explosion during Ultimate Art activation",
 			"stackable": false,
-			"effect": "Performs a ghostflame explosion on ultimate. 20 base magic damage"
+			"description": "Performs a ghostflame explosion on ultimate. 20 base magic damage"
 		},
 		{
 			"name": "[Revenant] Strengthens family and allies when Ultimate Art is activated",
 			"pattern": "\\[Revenant\\] Strengthens family and allies when Ultimate Art is activated",
 			"stackable": false,
-			"effect": "Increases ally damage by 1.25x for 30 seconds after ultimate art usage"
+			"description": "Increases ally damage by 1.25x for 30 seconds after ultimate art usage"
 		},
 		{
 			"name": "[Revenant] Power up while fighting alongside family",
 			"pattern": "\\[Revenant\\] Power up while fighting alongside family",
 			"stackable": false,
-			"effect": "Helen provides 1 HP/s, Frederick provides 1.1x damage, and Sebastian provides 20% elemental damage negation"
+			"description": "Helen provides 1 HP/s, Frederick provides 1.1x damage, and Sebastian provides 20% elemental damage negation"
 		},
 		{
 			"name": "[Recluse] Collecting affinity residue activates Terra Magica",
 			"pattern": "\\[Recluse\\] Collecting affinity residue activates Terra Magica",
 			"stackable": false,
-			"effect": "Creates a sigil that increases magic damage by 1.15x when standing inside, lasts 30 seconds",
+			"description": "Creates a sigil that increases magic damage by 1.15x when standing inside, lasts 30 seconds",
 			"note": "Cannot spawn a new terra magica while previous one is still active"
 		},
 		{
 			"name": "[Recluse] Suffer blood loss and increase attack power upon Art activation",
 			"pattern": "\\[Recluse\\] Suffer blood loss and increase attack power upon Art activation",
 			"stackable": false,
-			"effect": "Ultimate deals [MaxHP * 0.2] damage to the player and increases damage by 1.16x for 30s",
+			"description": "Ultimate deals [MaxHP * 0.2] damage to the player and increases damage by 1.16x for 30s",
 			"note": "Applies on top of the built in ~15% damage increase from her Ultimate art"
 		},
 		{
 			"name": "[Recluse] Activating Ultimate Art raises Max HP",
 			"pattern": "\\[Recluse\\] Activating Ultimate Art raises Max HP",
 			"stackable": false,
-			"effect": "Increases maximum HP by 1.5x for 30 seconds. After 30 seconds, buff stays until hit"
+			"description": "Increases maximum HP by 1.5x for 30 seconds. After 30 seconds, buff stays until hit"
 		},
 		{
 			"name": "[Executor] Character Skill Boosts Attack but Lowers Damage Negation While Attacking",
 			"pattern": "\\[Executor\\] Character Skill Boosts Attack but Lowers Damage Negation While Attacking",
 			"stackable": false,
-			"effect": "Increases damage by 1.35x for 6 seconds and lowers damage negation by 40% for 5 seconds"
+			"description": "Increases damage by 1.35x for 6 seconds and lowers damage negation by 40% for 5 seconds"
 		},
 		{
 			"name": "[Executor] While Character Skill is active, unlocking use of cursed sword restores HP",
 			"pattern": "\\[Executor\\] While Character Skill is active, unlocking use of cursed sword restores HP",
 			"stackable": false,
-			"effect": "Restores [MaxHP * 0.05] + 100 HP"
+			"description": "Restores [MaxHP * 0.05] + 100 HP"
 		},
 		{
 			"name": "[Executor] Roaring restores HP while art is active",
 			"pattern": "\\[Executor\\] Roaring restores HP while art is active",
 			"stackable": false,
-			"effect": "Restores [MaxHP * 0.15] after using the roar attack in the ultimate"
+			"description": "Restores [MaxHP * 0.15] after using the roar attack in the ultimate"
 		},
 		{
 			"name": "[Scholar] Prevent slowing of Character Skill",
 			"pattern": "\\[Scholar\\] Prevent slowing of Character Skill",
 			"stackable": false,
-			"effect": "Slows the decay rate of the Analyze meter"
+			"description": "Slows the decay rate of the Analyze meter"
 		},
 		{
 			"name": "[Scholar] Allies targeted by Character Skill gain boosted attack",
 			"pattern": "\\[Scholar\\] Allies targeted by Character Skill gain boosted attack",
 			"stackable": false,
-			"effect": "Upon usage of the skill, allies targeted will gain 1.2x (physical) / 1.15x (elemental) damage for 30 seconds"
+			"description": "Upon usage of the skill, allies targeted will gain 1.2x (physical) / 1.15x (elemental) damage for 30 seconds"
 		},
 		{
 			"name": "[Scholar] Continuous damage inflicted on targets threaded by Ultimate Art",
 			"pattern": "\\[Scholar\\] Continuous damage inflicted on targets threaded by Ultimate Art",
 			"stackable": false,
-			"effect": "Enemies affected by the ultimate takes 15 dps for 20 seconds"
+			"description": "Enemies affected by the ultimate takes 15 dps for 20 seconds"
 		},
 		{
 			"name": "[Scholar] Earn runes for each additional specimen acquired with Character Skill",
 			"pattern": "\\[Scholar\\] Earn runes for each additional specimen acquired with Character Skill",
 			"stackable": false,
-			"effect": "Gain 1300 runes when analyzing a new enemy type (works like a bestiary). Scanning the same enemy type at a different location will not provide the runes. (needs additional confirmation)"
+			"description": "Gain 1300 runes when analyzing a new enemy type (works like a bestiary). Scanning the same enemy type at a different location will not provide the runes. (needs additional confirmation)"
 		},
 		{
 			"name": "[Undertaker] Activating Ultimate Art increases attack power",
 			"pattern": "\\[Undertaker\\] Activating Ultimate Art increases attack power",
 			"stackable": false,
-			"effect": "Increases damage by 1.18x for 40 seconds after activating ultimate"
+			"description": "Increases damage by 1.18x for 40 seconds after activating ultimate"
 		},
 		{
 			"name": "[Undertaker] Attack power increases by landing the final blow of a chain attack",
 			"pattern": "\\[Undertaker\\] Attack power increases by landing the final blow of a chain attack",
 			"stackable": null,
-			"effect": "Increases damage by 1.16x for 20 seconds after hitting final hit of R1/L1 chain"
+			"description": "Increases damage by 1.16x for 20 seconds after hitting final hit of R1/L1 chain"
 		},
 		{
 			"name": "[Undertaker] Physical attacks boosted while assist effect from incantation is active for self",
 			"pattern": "\\[Undertaker\\] Physical attacks boosted while assist effect from incantation is active for self",
 			"stackable": null,
-			"effect": "Increases physical damage by 1.19x for 60 seconds after applying an incant buff"
+			"description": "Increases physical damage by 1.19x for 60 seconds after applying an incant buff"
 		},
 		{
 			"name": "[Undertaker] Contact with allies restores their HP while Ultimate Art is activated",
 			"pattern": "\\[Undertaker\\] Contact with allies restores their HP while Ultimate Art is activated",
 			"stackable": null,
-			"effect": "Allies restore 30% of max HP + 100 HP if they make contact with the ultimate"
+			"description": "Allies restore 30% of max HP + 100 HP if they make contact with the ultimate"
 		}
 	]
 }

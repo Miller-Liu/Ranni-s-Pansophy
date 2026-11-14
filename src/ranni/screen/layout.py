@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from ranni.ocr.engine import OcrLine
-from ranni.types import Box
+from ranni.screen.ocr import OcrLine
+from ranni.screen import Box
 
 
 def line_below(lines: list[OcrLine], i: int) -> int | None:

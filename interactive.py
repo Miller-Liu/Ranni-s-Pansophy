@@ -2,15 +2,16 @@
 import logging
 import sys
 
-from ranni.effects import EffectManager
-from ranni.scoring import Scorer
+from ranni.relics.builds import Scorer
+from ranni.relics.manager import EffectManager
+
+manager = EffectManager("settings/effects.json", "settings/deep_effects.json")
+scorer = Scorer("settings/builds.json", manager)
+print(f"{len(manager.normal)} effects and {len(manager.deep)} deep effects loaded, {len(scorer.builds)} builds. "
+      "Type what OCR read; empty line to quit.")
 
 logging.basicConfig(format="%(message)s", stream=sys.stdout)
-logging.getLogger("ranni.effects").setLevel(logging.DEBUG)  # EffectManager prints each step
-
-manager = EffectManager("settings/effects.json")
-scorer = Scorer.load("settings/builds.json")
-print(f"{len(manager.effects)} effects loaded. Type what OCR read; empty line to quit.")
+logging.getLogger("ranni.relics").setLevel(logging.DEBUG)  # EffectManager prints each step
 
 while True:
     try:
@@ -20,11 +21,12 @@ while True:
     if not line.strip():
         break
 
-    match = manager.match(line)  # steps 3 and 4, logged
+    match = manager.match(line)  # effects.json first, then deep_effects.json; every step is logged
     if match is None:
         print("  -> no effect")
         continue
 
-    score = scorer.score([match.text])  # step 5, this effect alone
-    print(f"  score:         {score.total} ({score.build})   points per character: "
-          + ", ".join(f"{t.name} {t.points(match.text):g}" for t in scorer.tier_lists))
+    print(f"  kind:          {match.kind}")
+    for build in scorer.builds:  # what this one effect is worth in each build
+        points = build.effect_points(match)
+        print(f"  {str(build) + ':':<14} {'ruled out' if points is None else f'{points:+g}'}")

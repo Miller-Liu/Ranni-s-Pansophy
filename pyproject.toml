@@ -26,14 +26,17 @@ dependencies = [
 [project.scripts]
 ranni = "ranni.cli:main"
 
-[dependency-groups]
-dev = ["pytest>=8.0"]
-
 [tool.pyright]
+include = ["src", "interactive.py"]
+venvPath = "."  # use the project's .venv (uv sync), so numpy, cv2, regex... are found
+venv = ".venv"
 pythonPlatform = "Windows"  # the only target; makes ctypes.windll etc. known when checking on the Mac
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
+typeCheckingMode = "standard"
+# from strict mode, the checks about our own code (the rest of strict is mostly cv2/numpy/winrt having no types)
+reportMissingParameterType = "warning"
+reportMissingTypeArgument = "warning"
+reportUnusedImport = "warning"
+reportUnusedVariable = "warning"
 
 [build-system]
 requires = ["uv_build>=0.12.3,<0.13.0"]

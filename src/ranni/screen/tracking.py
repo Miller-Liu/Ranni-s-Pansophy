@@ -19,7 +19,7 @@ from dataclasses import dataclass
 import cv2
 import numpy as np
 
-from ranni.types import Box
+from ranni.screen import Box
 
 THUMB = 12  # thumbnail size (px)
 MAX_DIFF = 10.0  # mean brightness difference (0-255) for two thumbnails to count as the same
@@ -72,7 +72,7 @@ class TileMemory:
         return labels
 
 
-def _at(items: list, i: int):
+def _at(items: list[np.ndarray], i: int) -> np.ndarray | None:
     return items[i] if 0 <= i < len(items) else None
 
 

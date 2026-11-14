@@ -4,27 +4,27 @@
 			"name": "Increased maximum HP",
 			"pattern": "Increased Maximum HP",
 			"stackable": true,
-			"effect": "Increases maximum HP by 1.1x"
+			"description": "Increases maximum HP by 1.1x"
 		},
 		{
 			"name": "Increased maximum FP",
 			"pattern": "Increased Maximum FP",
 			"stackable": true,
-			"effect": "Increases maximum FP by 1.15x"
+			"description": "Increases maximum FP by 1.15x"
 		},
 		{
 			"name": "Increased maximum stamina",
 			"pattern": "Increased Maximum Stamina",
 			"stackable": true,
-			"effect": "Increases maximum stamina by 1.12x"
+			"description": "Increases maximum stamina by 1.12x"
 		}
 	],
 	"Start of game": [
 		{
 			"name": "Start with item",
-			"pattern": "(Crimson Crystal Tear|Crimsonspill Crystal Tear|Crimsonburst Crystal Tear|Crimson Bubbletear|Crimsonwhorl Bubbletear|Cerulean Crystal Tear|Cerulean Hidden Tear|Greenspill Crystal Tear|Greenburst Crystal Tear|Opaline Bubbletear|Opaline Hardtear|Leaden Hardtear|Winged Crystal Tear|Windy Crystal Tear|Ruptured Crystal Tear|Thorny Cracked Tear|Spiked Cracked Tear|Twiggy Cracked Tear|Stonebarb Cracked Tear|Purifying Crystal Tear|Strength-knot Crystal Tear|Dexterity-knot Crystal Tear|Intelligence-knot Crystal Tear|Faith-knot Crystal Tear|Flame-Shrouding Cracked Tear|Magic-Shrouding Cracked Tear|Lightning-Shrouding Cracked Tear|Holy-Shrouding Cracked Tear|Ironjar Aromatic|Uplifting Aromatic|Spark Aromatic|Bloodboil Aromatic|Poison Spraymist|Acid Spraymist|Fire Spritzer|Frost Spritzer|Lightning Spritzer) in possession at start of expedition",
+			"pattern": "(?P<item>Crimson Crystal Tear|Crimsonspill Crystal Tear|Crimsonburst Crystal Tear|Crimson Bubbletear|Crimsonwhorl Bubbletear|Cerulean Crystal Tear|Cerulean Hidden Tear|Greenspill Crystal Tear|Greenburst Crystal Tear|Opaline Bubbletear|Opaline Hardtear|Leaden Hardtear|Winged Crystal Tear|Windy Crystal Tear|Ruptured Crystal Tear|Thorny Cracked Tear|Spiked Cracked Tear|Twiggy Cracked Tear|Stonebarb Cracked Tear|Purifying Crystal Tear|Strength-knot Crystal Tear|Dexterity-knot Crystal Tear|Intelligence-knot Crystal Tear|Faith-knot Crystal Tear|Flame-Shrouding Cracked Tear|Magic-Shrouding Cracked Tear|Lightning-Shrouding Cracked Tear|Holy-Shrouding Cracked Tear|Ironjar Aromatic|Uplifting Aromatic|Spark Aromatic|Bloodboil Aromatic|Poison Spraymist|Acid Spraymist|Fire Spritzer|Frost Spritzer|Lightning Spritzer) in possession at start of expedition",
 			"stackable": true,
-			"effect": "Starts the game with @1",
+			"description": "Starts the game with @item",
 			"note": "Lists contains all crystal tears and perfume items. Item names are Elden Ring's, from memory; check the exact wording in game"
 		}
 	],
@@ -33,31 +33,31 @@
 			"name": "Max HP increased for each great enemy defeated at a Great Church",
 			"pattern": "Max HP increased for each great enemy defeated at a Great Church",
 			"stackable": false,
-			"effect": "Increases maximum HP by 1.05x for each boss killed at a great church"
+			"description": "Increases maximum HP by 1.05x for each boss killed at a great church"
 		},
 		{
 			"name": "Runes and item discovery increased for each great enemy defeated at a Fort",
 			"pattern": "Runes and Item Discovery increased for each great enemy defeated at a Fort",
 			"stackable": false,
-			"effect": "Increases discovery by 16 and rune gain by 1.055x for each boss killed at a fort"
+			"description": "Increases discovery by 16 and rune gain by 1.055x for each boss killed at a fort"
 		},
 		{
 			"name": "Arcane increased for each great enemy defeated at a Ruin",
 			"pattern": "Arcane increased for each great enemy defeated at a Ruin",
 			"stackable": false,
-			"effect": "Increases arcane by 4 for each boss killed at a ruin"
+			"description": "Increases arcane by 4 for each boss killed at a ruin"
 		},
 		{
 			"name": "Max stamina increased for each great enemy defeated at a Great Encampment",
 			"pattern": "Max stamina increased for each great enemy defeated at a Great Encampment",
 			"stackable": false,
-			"effect": "Increases maximum stamina by 1.075x for each boss killed at a camp"
+			"description": "Increases maximum stamina by 1.075x for each boss killed at a camp"
 		},
 		{
 			"name": "Dormant power helps discover weapon class",
-			"pattern": "Dormant Power Helps Discover (Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals)",
+			"pattern": "Dormant Power Helps Discover (?P<weapon>Daggers|Straight Swords|Greatswords|Colossal Swords|Curved Swords|Curved Greatswords|Katanas|Twinblades|Thrusting Swords|Heavy Thrusting Swords|Axes|Greataxes|Hammers|Great Hammers|Flails|Spears|Great Spears|Halberds|Reapers|Whips|Fists|Claws|Colossal Weapons|Torches|Bows|Greatbows|Crossbows|Ballistas|Staves|Sacred Seals)",
 			"stackable": false,
-			"effect": "Changes the preferred weapon class to @1, making it more likely to obtain it",
+			"description": "Changes the preferred weapon class to @weapon, making it more likely to obtain it",
 			"note": "Priority is given to first one in order. Does not stack with character's preferred weapon type. Weapon type names are Elden Ring's weapon classes; check the exact wording in game"
 		}
 	],
@@ -66,112 +66,112 @@
 			"name": "Physical attack up +3/4",
 			"pattern": "Physical Attack Up \\+(3|4)",
 			"stackable": true,
-			"effect": "Increases physical damage by [1.105x, 1.12x]"
+			"description": "Increases physical damage by [1.105x, 1.12x]"
 		},
 		{
 			"name": "Elemental attack up +3/4",
-			"pattern": "(Magic|Fire|Lightning|Holy) Attack Up \\+(3|4)",
+			"pattern": "(?P<element>Magic|Fire|Lightning|Holy) Attack Up \\+(3|4)",
 			"stackable": true,
-			"effect": "Increases @1 damage by [1.105x, 1.12x]"
+			"description": "Increases @element damage by [1.105x, 1.12x]"
 		},
 		{
 			"name": "Improved affinity attack power",
 			"pattern": "Improved Affinity Attack Power",
 			"stackable": true,
-			"effect": "Increases magic, fire, lightning, and holy damage by 1.05x",
+			"description": "Increases magic, fire, lightning, and holy damage by 1.05x",
 			"note": "Affects spells"
 		},
 		{
 			"name": "Improved affinity attack power +1/2",
 			"pattern": "Improved Affinity Attack Power \\+(1|2)",
 			"stackable": true,
-			"effect": "Increases magic, fire, lightning, and holy damage by [1.08x, 1.1x]",
+			"description": "Increases magic, fire, lightning, and holy damage by [1.08x, 1.1x]",
 			"note": "Affects spells"
 		},
 		{
 			"name": "Physical attack power increases after using grease items +1/2",
 			"pattern": "Physical attack power increases after using grease items \\+(1|2)",
 			"stackable": false,
-			"effect": "Increases physical damage by [1.17x, 1.2x] for 30 seconds after using grease",
+			"description": "Increases physical damage by [1.17x, 1.2x] for 30 seconds after using grease",
 			"note": "Different levels stack (ex. +1 stacks with +2)"
 		},
 		{
 			"name": "Attack power up against afflicted enemies +1/2",
-			"pattern": "Attack power up when facing (Poison|Scarlet Rot|Frostbite)-afflicted enemy \\+(1|2)",
+			"pattern": "Attack power up when facing (?P<status>Poison|Scarlet Rot|Frostbite)-afflicted enemy \\+(1|2)",
 			"stackable": false,
-			"effect": "Increases damage by [1.16x, 1.2x] when attacking an enemy suffering from @1",
+			"description": "Increases damage by [1.16x, 1.2x] when attacking an enemy suffering from @status",
 			"note": "Different levels stack (ex. +1 stacks with +2)"
 		},
 		{
 			"name": "Sleep/madness in vicinity improves attack power",
-			"pattern": "(Sleep|Madness) in Vicinity Improves Attack Power",
+			"pattern": "(?P<status>Sleep|Madness) in Vicinity Improves Attack Power",
 			"stackable": false,
-			"effect": "Increases damage by 1.12x after @1 procs",
+			"description": "Increases damage by 1.12x after @status procs",
 			"note": "+0 stacks with +1"
 		},
 		{
 			"name": "Sleep/madness in vicinity improves attack power +1",
-			"pattern": "(Sleep|Madness) in Vicinity Improves Attack Power \\+1",
+			"pattern": "(?P<status>Sleep|Madness) in Vicinity Improves Attack Power \\+1",
 			"stackable": false,
-			"effect": "Increases damage by 1.22x after @1 procs",
+			"description": "Increases damage by 1.22x after @status procs",
 			"note": "+0 stacks with +1"
 		},
 		{
 			"name": "Improved guard counters +1/2",
 			"pattern": "Improved Guard Counters \\+(1|2)",
 			"stackable": true,
-			"effect": "Increases guard counter damage by [1.25x, 1.29x]"
+			"description": "Increases guard counter damage by [1.25x, 1.29x]"
 		},
 		{
 			"name": "Improved throwable damage +1/2",
-			"pattern": "Improved (Throwing Pot|Throwing Knife|Throwing Stone|Perfuming Arts) Damage \\+(1|2)",
+			"pattern": "Improved (?P<item>Throwing Pot|Throwing Knife|Throwing Stone|Perfuming Arts) Damage \\+(1|2)",
 			"stackable": true,
-			"effect": "Increases @1 damage by [1.3x, 1.35x]"
+			"description": "Increases @item damage by [1.3x, 1.35x]"
 		},
 		{
 			"name": "Art gauge charged from successful guarding +1",
 			"pattern": "Art gauge charged from successful guarding \\+1",
 			"stackable": false,
-			"effect": "Increases characterSkillGauge by 1.5 upon blocking an attack",
+			"description": "Increases characterSkillGauge by 1.5 upon blocking an attack",
 			"note": "+0 stacks with +1"
 		},
 		{
 			"name": "Art gauge fills moderately upon critical hit +1",
 			"pattern": "Art gauge fills moderately upon critical hit \\+1",
 			"stackable": false,
-			"effect": "Increases characterSkillGauge by 6.5 upon riposte",
+			"description": "Increases characterSkillGauge by 6.5 upon riposte",
 			"note": "+0 stacks with +1"
 		},
 		{
 			"name": "Defeating enemies fills more of the art gauge +1",
 			"pattern": "Defeating enemies fills more of the Art gauge \\+1",
 			"stackable": false,
-			"effect": "Increases characterSkillGauge by 6.5 upon killing enemies",
+			"description": "Increases characterSkillGauge by 6.5 upon killing enemies",
 			"note": "+0 stacks with +1"
 		},
 		{
 			"name": "Improved sorceries/incantations",
-			"pattern": "Improved (Sorceries|Incantations)",
+			"pattern": "Improved (?P<spell>Sorceries|Incantations)",
 			"stackable": true,
-			"effect": "Increases @1 damage by 1.05x"
+			"description": "Increases @spell damage by 1.05x"
 		},
 		{
 			"name": "Improved sorceries/incantations +1/2",
-			"pattern": "Improved (Sorceries|Incantations) \\+(1|2)",
+			"pattern": "Improved (?P<spell>Sorceries|Incantations) \\+(1|2)",
 			"stackable": true,
-			"effect": "Increases @1 damage by [1.085x, 1.1x]"
+			"description": "Increases @spell damage by [1.085x, 1.1x]"
 		},
 		{
 			"name": "Reduced FP consumption",
 			"pattern": "Reduced FP Consumption",
 			"stackable": true,
-			"effect": "Reduces FP consumption by 0.92x"
+			"description": "Reduces FP consumption by 0.92x"
 		},
 		{
 			"name": "Reduced FP consumption +1/2",
 			"pattern": "Reduced FP Consumption \\+(1|2)",
 			"stackable": true,
-			"effect": "Reduces FP consumption by [0.87x, 0.84x]",
+			"description": "Reduces FP consumption by [0.87x, 0.84x]",
 			"note": "Higher tier (+1/2) does not seem to appear on random relics"
 		}
 	],
@@ -180,31 +180,31 @@
 			"name": "Improved physical damage negation +1/2",
 			"pattern": "Improved Physical Damage Negation \\+(1|2)",
 			"stackable": true,
-			"effect": "Increases physical damage negation by [10.5%, 12%]"
+			"description": "Increases physical damage negation by [10.5%, 12%]"
 		},
 		{
 			"name": "Improved elemental damage negation +1/2",
-			"pattern": "Improved (Magic|Fire|Lightning|Holy) Damage Negation \\+(1|2)",
+			"pattern": "Improved (?P<element>Magic|Fire|Lightning|Holy) Damage Negation \\+(1|2)",
 			"stackable": true,
-			"effect": "Increases @1 damage negation by [15%, 16%]"
+			"description": "Increases @element damage negation by [15%, 16%]"
 		},
 		{
 			"name": "Improved affinity damage negation",
 			"pattern": "Improved Affinity Damage Negation",
 			"stackable": true,
-			"effect": "Increases magic, fire, lightning, and holy damage negation by 6%"
+			"description": "Increases magic, fire, lightning, and holy damage negation by 6%"
 		},
 		{
 			"name": "Improved affinity damage negation +1/2",
 			"pattern": "Improved Affinity Damage Negation \\+(1|2)",
 			"stackable": true,
-			"effect": "Increases magic, fire, lightning, and holy damage negation by [10.5%, 12%]"
+			"description": "Increases magic, fire, lightning, and holy damage negation by [10.5%, 12%]"
 		},
 		{
 			"name": "Improved status resistance +1/2",
-			"pattern": "Improved (Poison|Rot|Blood Loss|Frostbite|Sleep|Madness|Death Blight) Resistance \\+(1|2)",
+			"pattern": "Improved (?P<status>Poison|Rot|Blood Loss|Frostbite|Sleep|Madness|Death Blight) Resistance \\+(1|2)",
 			"stackable": true,
-			"effect": "Increases @1 resistance by [110, 130]"
+			"description": "Increases @status resistance by [110, 130]"
 		}
 	],
 	"Regen": [
@@ -212,28 +212,28 @@
 			"name": "Partial HP restoration upon post-damage attacks +1/2",
 			"pattern": "Partial HP Restoration upon Post-Damage Attacks \\+(1|2)",
 			"stackable": false,
-			"effect": "Same as original, but increases HP gained per hit by [25%, 35%]",
+			"description": "Same as original, but increases HP gained per hit by [25%, 35%]",
 			"note": "+1 stacks with +2, but neither stack with +0"
 		},
 		{
 			"name": "HP restoration upon thrusting counterattack +1",
 			"pattern": "HP Restoration upon Thrusting Counterattack \\+1",
 			"stackable": false,
-			"effect": "Restores [MaxHP * 0.033] on counterhits",
+			"description": "Restores [MaxHP * 0.033] on counterhits",
 			"note": "Different levels stack (ex. +1 stacks with +2)"
 		},
 		{
 			"name": "HP restored when using medicinal boluses, etc. +1",
 			"pattern": "HP restored when using medicinal boluses, etc\\. \\+1",
 			"stackable": false,
-			"effect": "Replenish 80 HP from certain consumables",
+			"description": "Replenish 80 HP from certain consumables",
 			"note": "+0 stacks with +1"
 		},
 		{
 			"name": "Improved flask HP restoration",
 			"pattern": "Improved Flask HP Restoration",
 			"stackable": true,
-			"effect": "Increases HP gained from flasks by 1.1x"
+			"description": "Increases HP gained from flasks by 1.1x"
 		}
 	],
 	"Character": [
@@ -241,210 +241,210 @@
 			"name": "[Wylder] Character Skill inflicts Blood Loss",
 			"pattern": "\\[Wylder\\] Character Skill inflicts Blood Loss",
 			"stackable": false,
-			"effect": "Skill inflicts 60 (impact) / 55 (pull) bleed on hit"
+			"description": "Skill inflicts 60 (impact) / 55 (pull) bleed on hit"
 		},
 		{
 			"name": "[Guardian] Character Skill Boosts Damage Negation of Nearby Allies",
 			"pattern": "\\[Guardian\\] Character Skill Boosts Damage Negation of Nearby Allies",
 			"stackable": false,
-			"effect": "Increases damage negation for self and allies by 12% for 30 seconds after using skill"
+			"description": "Increases damage negation for self and allies by 12% for 30 seconds after using skill"
 		},
 		{
 			"name": "[Ironeye] Character Skill Inflicts Heavy Poison Damage on Poisoned Enemies",
 			"pattern": "\\[Ironeye\\] Character Skill Inflicts Heavy Poison Damage on Poisoned Enemies",
 			"stackable": false,
-			"effect": "Skill inflicts 70 poison. Deals [MaxHP * 0.0025] + 250 damage on poison-afflicted enemies",
+			"description": "Skill inflicts 70 poison. Deals [MaxHP * 0.0025] + 250 damage on poison-afflicted enemies",
 			"note": "Testing suggests its still based on max HP"
 		},
 		{
 			"name": "[Duchess] Use Character Skill for Brief Invulnerability",
 			"pattern": "\\[Duchess\\] Use Character Skill for Brief Invulnerability",
 			"stackable": false,
-			"effect": "Makes you immune to damage for 0.4 seconds after using skill",
+			"description": "Makes you immune to damage for 0.4 seconds after using skill",
 			"note": "Translates to 24 iframes at 60FPS"
 		},
 		{
 			"name": "[Raider] Hit With Character Skill to Reduce Enemy Attack Power",
 			"pattern": "\\[Raider\\] Hit With Character Skill to Reduce Enemy Attack Power",
 			"stackable": false,
-			"effect": "Decreases enemy damage dealt by 0.87x after hitting them with skill for 13 seconds"
+			"description": "Decreases enemy damage dealt by 0.87x after hitting them with skill for 13 seconds"
 		},
 		{
 			"name": "[Revenant] Increases Max FP upon Ability Activation",
 			"pattern": "\\[Revenant\\] Increases Max FP upon Ability Activation",
 			"stackable": false,
-			"effect": "Permanently increases maximum FP by 1.0075x from 0 to 20 stacks; Permanently increases maximum FP by 1.0085x from 21 to 40 stacks; Permanently increases maximum FP by 1.0095x from 41 to 60 stacks (cap, total 51% increased max FP)"
+			"description": "Permanently increases maximum FP by 1.0075x from 0 to 20 stacks; Permanently increases maximum FP by 1.0085x from 21 to 40 stacks; Permanently increases maximum FP by 1.0095x from 41 to 60 stacks (cap, total 51% increased max FP)"
 		},
 		{
 			"name": "[Recluse] Collect Affinity Residues to Negate Affinity",
 			"pattern": "\\[Recluse\\] Collect Affinity Residues to Negate Affinity",
 			"stackable": false,
-			"effect": "Increases magic/fire/lightning/holy damage negation by 20% upon absorbing respective residue for 30 seconds"
+			"description": "Increases magic/fire/lightning/holy damage negation by 20% upon absorbing respective residue for 30 seconds"
 		},
 		{
 			"name": "[Executor] Slowly Restore HP upon Ability Activation",
 			"pattern": "\\[Executor\\] Slowly Restore HP upon Ability Activation",
 			"stackable": false,
-			"effect": "Restores [MaxHP * 0.0027] + 3 for 30 seconds after passive activates (recovering from status effect)"
+			"description": "Restores [MaxHP * 0.0027] + 3 for 30 seconds after passive activates (recovering from status effect)"
 		},
 		{
 			"name": "[Scholar] Reduced FP consumption when using Character Skill on self",
 			"pattern": "\\[Scholar\\] Reduced FP consumption when using Character Skill on self",
 			"stackable": false,
-			"effect": "Reduces FP consumption by 0.85x for 40 seconds after using character skill self buff"
+			"description": "Reduces FP consumption by 0.85x for 40 seconds after using character skill self buff"
 		},
 		{
 			"name": "[Undertaker] Executing Art readies Character Skill",
 			"pattern": "\\[Undertaker\\] Executing Art readies Character Skill",
 			"stackable": false,
-			"effect": "Allows you to perform Trance immediately after activating ultimate. Works with temporary ultimate use."
+			"description": "Allows you to perform Trance immediately after activating ultimate. Works with temporary ultimate use."
 		},
 		{
 			"name": "[Wylder] Improved Mind, Reduced Vigor",
 			"pattern": "\\[Wylder\\] Improved Mind, Reduced Vigor",
 			"stackable": false,
-			"effect": "Decreases vigor by 5, increases mind by 10",
+			"description": "Decreases vigor by 5, increases mind by 10",
 			"note": "Stat changes assumes level 15 (same applies to the effects below); -100 HP, +50 FP"
 		},
 		{
 			"name": "[Wylder] Improved Intelligence and Faith, Reduced Strength and Dexterity",
 			"pattern": "\\[Wylder\\] Improved Intelligence and Faith, Reduced Strength and Dexterity",
 			"stackable": false,
-			"effect": "Decreases strength by 7 and dexterity by 5, increases intelligence and faith by 15"
+			"description": "Decreases strength by 7 and dexterity by 5, increases intelligence and faith by 15"
 		},
 		{
 			"name": "[Guardian] Improved Strength and Dexterity, Reduced Vigor",
 			"pattern": "\\[Guardian\\] Improved Strength and Dexterity, Reduced Vigor",
 			"stackable": false,
-			"effect": "Decreases vigor by 8, increases strength by 9 and dexterity by 19",
+			"description": "Decreases vigor by 8, increases strength by 9 and dexterity by 19",
 			"note": "~16% AP increase for halberds, ~20% increase for heavy thrusting swords; -160 HP"
 		},
 		{
 			"name": "[Guardian] Improved Mind and Faith, Reduced Vigor",
 			"pattern": "\\[Guardian\\] Improved Mind and Faith, Reduced Vigor",
 			"stackable": false,
-			"effect": "Decreases vigor by 6, increases mind by 8 and faith by 17",
+			"description": "Decreases vigor by 6, increases mind by 8 and faith by 17",
 			"note": "-120 HP, +40 FP"
 		},
 		{
 			"name": "[Ironeye] Improved Arcane, Reduced Dexterity",
 			"pattern": "\\[Ironeye\\] Improved Arcane, Reduced Dexterity",
 			"stackable": false,
-			"effect": "Decreases dexterity by 9, increases arcane by 15",
+			"description": "Decreases dexterity by 9, increases arcane by 15",
 			"note": "~26% increase in status build up, ~ -6% reduction to bow attack"
 		},
 		{
 			"name": "[Ironeye] Improved Vigor and Strength, Reduced Dexterity",
 			"pattern": "\\[Ironeye\\] Improved Vigor and Strength, Reduced Dexterity",
 			"stackable": false,
-			"effect": "Decreases dexterity by 13, increases strength by 20 and vigor by 5",
+			"description": "Decreases dexterity by 13, increases strength by 20 and vigor by 5",
 			"note": "+100 HP"
 		},
 		{
 			"name": "[Duchess] Improved Vigor and Strength, Reduced Mind",
 			"pattern": "\\[Duchess\\] Improved Vigor and Strength, Reduced Mind",
 			"stackable": false,
-			"effect": "Decreases mind by 14, increases strength by 24 and vigor by 3",
+			"description": "Decreases mind by 14, increases strength by 24 and vigor by 3",
 			"note": "-70 FP, +60 HP"
 		},
 		{
 			"name": "[Duchess] Improved Mind and Faith, Reduced Intelligence",
 			"pattern": "\\[Duchess\\] Improved Mind and Faith, Reduced Intelligence",
 			"stackable": false,
-			"effect": "Decreases intelligence by 5, increases faith by 13 and mind by 3",
+			"description": "Decreases intelligence by 5, increases faith by 13 and mind by 3",
 			"note": "+15 FP; 14% increase to incant damage vs base duchess, but still 10% lower than Revenant"
 		},
 		{
 			"name": "[Raider] Improved Mind and Intelligence, Reduced Vigor and Endurance",
 			"pattern": "\\[Raider\\] Improved Mind and Intelligence, Reduced Vigor and Endurance",
 			"stackable": false,
-			"effect": "Decreases vigor by 8 and endurance by 4, increases intelligence by 35 and mind by 9",
+			"description": "Decreases vigor by 8 and endurance by 4, increases intelligence by 35 and mind by 9",
 			"note": "-160 HP, +45 FP"
 		},
 		{
 			"name": "[Raider] Improved Arcane, Reduced Vigor",
 			"pattern": "\\[Raider\\] Improved Arcane, Reduced Vigor",
 			"stackable": false,
-			"effect": "Decreases vigor by 4, increases arcane by 17",
+			"description": "Decreases vigor by 4, increases arcane by 17",
 			"note": "-80 HP"
 		},
 		{
 			"name": "[Revenant] Improved Vigor and Endurance, Reduced Mind",
 			"pattern": "\\[Revenant\\] Improved Vigor and Endurance, Reduced Mind",
 			"stackable": false,
-			"effect": "Decreases mind by 11, increases vigor by 5 and endurance by 5",
+			"description": "Decreases mind by 11, increases vigor by 5 and endurance by 5",
 			"note": "-55 FP, +100 HP"
 		},
 		{
 			"name": "[Revenant] Improved Strength, Reduced Faith",
 			"pattern": "\\[Revenant\\] Improved Strength, Reduced Faith",
 			"stackable": false,
-			"effect": "Decreases faith by 6, increases strength by 25"
+			"description": "Decreases faith by 6, increases strength by 25"
 		},
 		{
 			"name": "[Recluse] Improved Vigor, Endurance, and Dexterity, Reduced Intelligence and Faith",
 			"pattern": "\\[Recluse\\] Improved Vigor, Endurance, and Dexterity, Reduced Intelligence and Faith",
 			"stackable": false,
-			"effect": "Decreases intelligence and faith by 10, increases dexterity by 20, endurance by 5, and vigor by 4",
+			"description": "Decreases intelligence and faith by 10, increases dexterity by 20, endurance by 5, and vigor by 4",
 			"note": "+80 HP"
 		},
 		{
 			"name": "[Recluse] Improved Intelligence and Faith, Reduced Mind",
 			"pattern": "\\[Recluse\\] Improved Intelligence and Faith, Reduced Mind",
 			"stackable": false,
-			"effect": "Decreases mind by 13, increases intelligence and faith by 12",
+			"description": "Decreases mind by 13, increases intelligence and faith by 12",
 			"note": "-65 FP, ~10% increase in spell damage"
 		},
 		{
 			"name": "[Executor] Improved Vigor and Endurance, Reduced Arcane",
 			"pattern": "\\[Executor\\] Improved Vigor and Endurance, Reduced Arcane",
 			"stackable": false,
-			"effect": "Decreases arcane by 13, increases vigor by 5 and endurance by 6",
+			"description": "Decreases arcane by 13, increases vigor by 5 and endurance by 6",
 			"note": "+100 HP"
 		},
 		{
 			"name": "[Executor] Improved Dexterity and Arcane, Reduced Vigor",
 			"pattern": "\\[Executor\\] Improved Dexterity and Arcane, Reduced Vigor",
 			"stackable": false,
-			"effect": "Decreases vigor by 7, increases arcane by 9 and dexterity by 12",
+			"description": "Decreases vigor by 7, increases arcane by 9 and dexterity by 12",
 			"note": "-140 HP, ~11% increase in status build up, ~6.3% increase in AP for katana"
 		},
 		{
 			"name": "[Scholar] Improved Mind, Reduced Vigor",
 			"pattern": "\\[Scholar\\] Improved Mind, Reduced Vigor",
 			"stackable": false,
-			"effect": "Decreases vigor by 3, increases mind by 9"
+			"description": "Decreases vigor by 3, increases mind by 9"
 		},
 		{
 			"name": "[Scholar] Improved Endurance and Dexterity, Reduced Intelligence and Arcane",
 			"pattern": "\\[Scholar\\] Improved Endurance and Dexterity, Reduced Intelligence and Arcane",
 			"stackable": false,
-			"effect": "Decreases intelligence by 4 and arcane by 20, increases endurance by 6 and dexterity by 40"
+			"description": "Decreases intelligence by 4 and arcane by 20, increases endurance by 6 and dexterity by 40"
 		},
 		{
 			"name": "[Undertaker] Improved Dexterity, Reduced Vigor and Faith",
 			"pattern": "\\[Undertaker\\] Improved Dexterity, Reduced Vigor and Faith",
 			"stackable": false,
-			"effect": "Decreases vigor by 5 and faith by 13, increases dexterity by 19"
+			"description": "Decreases vigor by 5 and faith by 13, increases dexterity by 19"
 		},
 		{
 			"name": "[Undertaker] Improved Mind and Faith, Reduced Strength",
 			"pattern": "\\[Undertaker\\] Improved Mind and Faith, Reduced Strength",
 			"stackable": false,
-			"effect": "Decreases strength by 15, increases mind by 9 and faith by 12"
+			"description": "Decreases strength by 15, increases mind by 9 and faith by 12"
 		}
 	],
 	"Curse": [
 		{
 			"name": "Taking damage causes status buildup",
-			"pattern": "Taking Damage Causes (Poison|Rot|Blood Loss|Frostbite|Sleep|Madness|Death Blight) Buildup",
+			"pattern": "Taking Damage Causes (?P<status>Poison|Rot|Blood Loss|Frostbite|Sleep|Madness|Death Blight) Buildup",
 			"stackable": true,
-			"effect": {
+			"description": {
 				"death blight": "Taking damage inflicts 32 death blight buildup on the user",
 				"madness": "Taking damage inflicts 40 madness buildup on the user",
 				"sleep": "Taking damage inflicts 40 sleep buildup on the user",
 				"poison": "Taking damage inflicts 52 poison buildup on the user",
-				"default": "Taking damage inflicts 44 @1 buildup on the user"
+				"default": "Taking damage inflicts 44 @status buildup on the user"
 			},
 			"note": "Poison / Rot / Frost does not trigger executor ability Tenacity until the status is recovered"
 		},
@@ -452,107 +452,107 @@
 			"name": "Reduced strength and intelligence",
 			"pattern": "Reduced Strength and Intelligence",
 			"stackable": true,
-			"effect": "Decreases strength and intelligence by 3"
+			"description": "Decreases strength and intelligence by 3"
 		},
 		{
 			"name": "Reduced dexterity and faith",
 			"pattern": "Reduced Dexterity and Faith",
 			"stackable": true,
-			"effect": "Decreases dexterity and faith by 3"
+			"description": "Decreases dexterity and faith by 3"
 		},
 		{
 			"name": "Reduced dexterity and intelligence",
 			"pattern": "Reduced Dexterity and Intelligence",
 			"stackable": true,
-			"effect": "Decreases dexterity and intelligence by 3"
+			"description": "Decreases dexterity and intelligence by 3"
 		},
 		{
 			"name": "Reduced strength and faith",
 			"pattern": "Reduced Strength and Faith",
 			"stackable": true,
-			"effect": "Decreases strength and faith by 3"
+			"description": "Decreases strength and faith by 3"
 		},
 		{
 			"name": "Reduced vigor and arcane",
 			"pattern": "Reduced Vigor and Arcane",
 			"stackable": true,
-			"effect": "Decreases vigor and arcane by 3",
+			"description": "Decreases vigor and arcane by 3",
 			"note": "-60 HP"
 		},
 		{
 			"name": "Reduced rune acquisition",
 			"pattern": "Reduced Rune Acquisition",
 			"stackable": true,
-			"effect": "Decreases rune gain by 0.9x"
+			"description": "Decreases rune gain by 0.9x"
 		},
 		{
 			"name": "Reduced flask HP restoration",
 			"pattern": "Reduced Flask HP Restoration",
 			"stackable": true,
-			"effect": "Reduces HP gained from flasks by 0.85x"
+			"description": "Reduces HP gained from flasks by 0.85x"
 		},
 		{
 			"name": "Ultimate art charging impaired",
 			"pattern": "Ultimate Art Charging Impaired",
 			"stackable": true,
-			"effect": "Decreases ultimate gauge gain by 0.85x",
+			"description": "Decreases ultimate gauge gain by 0.85x",
 			"note": "Unlike Ultimate Art Gauge, affects both passive ult gain and ult gain from attacking"
 		},
 		{
 			"name": "All resistances down",
 			"pattern": "All Resistances Down",
 			"stackable": true,
-			"effect": "Decreases all status resist by 80"
+			"description": "Decreases all status resist by 80"
 		},
 		{
 			"name": "Continuous HP loss",
 			"pattern": "Continuous HP Loss",
 			"stackable": true,
-			"effect": "Decreases HP by 2/s"
+			"description": "Decreases HP by 2/s"
 		},
 		{
 			"name": "More damage taken after evasion",
 			"pattern": "More Damage Taken After Evasion",
 			"stackable": true,
-			"effect": "Decreases damage negations by 45% right after rolling"
+			"description": "Decreases damage negations by 45% right after rolling"
 		},
 		{
 			"name": "Repeated evasions lower damage negation",
 			"pattern": "Repeated Evasions Lower Damage Negation",
 			"stackable": true,
-			"effect": "Decreases damage negations by 23% / 35% for 15 seconds on repeat rolls"
+			"description": "Decreases damage negations by 23% / 35% for 15 seconds on repeat rolls"
 		},
 		{
 			"name": "Reduced damage negation for flask usages",
 			"pattern": "Reduced Damage Negation for Flask Usages",
 			"stackable": true,
-			"effect": "Decreases damage negations by 45% while using flasks"
+			"description": "Decreases damage negations by 45% while using flasks"
 		},
 		{
 			"name": "Lower attack when below max HP",
 			"pattern": "Lower Attack When Below Max HP",
 			"stackable": true,
-			"effect": "Decreases damage by 0.915x when HP is below 85%"
+			"description": "Decreases damage by 0.915x when HP is below 85%"
 		},
 		{
 			"name": "Poison buildup when below max HP",
 			"pattern": "Poison Buildup When Below Max HP",
 			"stackable": true,
-			"effect": "Inflicts the user with 2 poison buildup per 0.22s when HP is below 85%",
+			"description": "Inflicts the user with 2 poison buildup per 0.22s when HP is below 85%",
 			"note": "Does not trigger executor ability Tenacity until the status is recovered"
 		},
 		{
 			"name": "Rot buildup when below max HP",
 			"pattern": "Rot Buildup When Below Max HP",
 			"stackable": true,
-			"effect": "Inflicts the user with 2 rot buildup per 0.24s when HP is below 85%",
+			"description": "Inflicts the user with 2 rot buildup per 0.24s when HP is below 85%",
 			"note": "Does not trigger executor ability Tenacity until the status is recovered"
 		},
 		{
 			"name": "Near death reduces max HP",
 			"pattern": "Near Death Reduces Max HP",
 			"stackable": true,
-			"effect": "Reduces maximum HP by 0.75x for 60 seconds after being downed"
+			"description": "Reduces maximum HP by 0.75x for 60 seconds after being downed"
 		}
 	]
 }

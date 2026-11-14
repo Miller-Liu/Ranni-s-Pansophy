@@ -24,14 +24,7 @@ Go in order: each step tests one more piece.
    ```
    `State : Installed` is good. If not: Settings > Time & language > Language & region > add English (United States).
 
-## 1. Tests
-
-```powershell
-uv run pytest
-```
-Expected: all pass (same as on the Mac).
-
-## 2. OCR + scoring on a screenshot (no game needed)
+## 1. OCR + scoring on a screenshot (no game needed)
 
 ```powershell
 uv run ranni scan "samples\End Screen #1.jpg" --debug
@@ -39,15 +32,15 @@ uv run ranni scan "samples\End Screen #1.jpg" --debug
 Expected:
 - `5 tiles, selected: #0`
 - under **text read**: the lines on screen, including `Polished Burning Scene`, `Improved Dragon Cult Incantations`, `Faith +1`
-- under **effects recognized**: `Improved Dragon Cult Incantations +8`, `Faith +1 +3`
-- `Score 11 (Revenant) - ruled out: Ironeye` (from the example `settings\builds.json`)
-- open `debug\End Screen #1\scene.png`: tiles boxed, the selected one yellow with `11`, `+8` / `+3` next to the effects
+- under **effects recognized**: `Improved Dragon Cult Incantations (normal)`, `Faith +1 (normal)`, each with its points
+- a `Score ...` line for the best build in `settings\builds.json`
+- open `debug\End Screen #1\scene.png`: tiles boxed, the selected one yellow with its score, points next to the effects
 
 Also try `"samples\Small Jar #1.webp"` and `"samples\Small Jar #3.png"`.
 
 This tests Windows OCR. If it fails, this is the most likely place: send the error.
 
-## 3. Live overlay, without the game
+## 2. Live overlay, without the game
 
 1. Open `samples\Small Jar #1.webp` full screen (e.g. Photos app, then F11).
 2. In a terminal:
@@ -63,7 +56,7 @@ This tests Windows OCR. If it fails, this is the most likely place: send the err
 
 Clicks should go through the overlay to whatever is underneath.
 
-## 4. In the game
+## 3. In the game
 
 1. Set the game to **Borderless Windowed** (exclusive fullscreen hides overlays and can give black captures).
 2. `uv run ranni run`, open Relic Rites (or the bazaar / end screen), press **Ctrl+Alt+Space**.
@@ -72,23 +65,27 @@ Clicks should go through the overlay to whatever is underneath.
 4. Take a few screenshots for `samples\` (Win+PrtScn saves PNGs to Pictures\Screenshots),
    especially **Relic Rites**. Real screenshots are the best way to tune detection.
 
-## 5. Your builds
+## 4. Your builds
 
-Edit `settings\builds.json`: one tier list per character. Effects are written as the game shows them
-(the official text, e.g. `Vigor +2`; case and spacing don't matter):
+Edit `settings\builds.json`: for each character, each build, how many points each effect is worth.
+Effects are written as the game shows them (the official text, e.g. `Vigor +2`; case and spacing don't matter):
 
 ```json
 {
-  "Revenant": {
-    "8": ["Improved Dragon Cult Incantations"],
-    "3": ["Faith +1"],
-    "-1": ["An effect that rules this character out"]
+  "Duchess": {
+    "Favorite Build": {
+      "normal effect": {"Improve Daggers Attack Power": 9, "Magic Attack Up +2": 9},
+      "deep effect":   {"Dormant Power Helps Discover @weapon": -1},
+      "deep curse":    {"Reduced Vigor and Arcane": 0, "Reduced Rune Acquisition": -2}
+    }
   }
 }
 ```
 
-A relic's score for a character = the sum of its effects' tiers (unlisted = 0); any -1 effect rules
-that character out. The relic shows the best character's score.
+A relic's score for a build = the sum of its effects' and curses' points (unlisted effects = 0).
+A curse that isn't listed rules that build out. The relic shows the best build's score.
+`@weapon` stands for any value of the effect's group named `weapon` (see the patterns in the effects files).
+Ranni checks every entry when it starts and names any that isn't a real effect of its section.
 
 ## If something goes wrong
 

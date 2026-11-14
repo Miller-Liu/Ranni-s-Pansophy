@@ -1,13 +1,30 @@
-"""read_text(image, engine): all text in an image, as lines with positions."""
+"""read_text(image, engine): all text in an image, as lines with positions. OcrEngine: what an engine looks like."""
 
 from __future__ import annotations
 
 import sys
+from dataclasses import dataclass
+from typing import Protocol
 
 import cv2
 import numpy as np
 
-from ranni.ocr.engine import OcrEngine, OcrLine
+from ranni.screen import Box
+
+
+@dataclass
+class OcrLine:
+    text: str
+    y: float  # vertical center of the line in the image the engine was given
+    box: Box | None = None  # x, y, w, h of the line in that image
+
+
+class OcrEngine(Protocol):
+    max_height: int  # largest width or height the engine accepts
+
+    def recognize(self, image: np.ndarray) -> list[OcrLine]:
+        """Read a grayscale image. One OcrLine per line of text, top to bottom."""
+        ...
 
 
 def read_text(image: np.ndarray, engine: OcrEngine) -> list[OcrLine]:
@@ -30,6 +47,6 @@ def default_engine() -> OcrEngine | None:
     """Windows OCR on Windows; no engine elsewhere."""
     if sys.platform != "win32":
         return None
-    from ranni.ocr.windows import WindowsOcr
+    from ranni.screen.windows_ocr import WindowsOcr
 
     return WindowsOcr()

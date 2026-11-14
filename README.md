@@ -28,11 +28,6 @@ Run these in PowerShell.
    ```
    `State : Installed` is good. If not: Settings > Time & language > Language & region > add English (United States).
 
-4. Check it works:
-   ```powershell
-   uv run pytest
-   ```
-
 To update later: `git pull`, then `uv sync`.
 
 ## Usage
@@ -58,14 +53,14 @@ uv run ranni scan "$env:USERPROFILE\Pictures\Screenshots\<shot>.png" --debug
 Everything except OCR, capture, hotkeys and the overlay runs on the Mac:
 ```bash
 uv sync
-uv run pytest
+uv run python interactive.py                          # type effect lines, see the match and score
 uv run ranni scan "samples/End Screen #1.jpg" --debug   # tiles only, no OCR
 ```
 
 ## Files
 
 - `settings/effects.json`, `settings/deep_effects.json`: every relic effect (pattern, description, stackable)
-- `settings/builds.json`: per-character tier lists of effects
+- `settings/builds.json`: your builds: how many points each effect and curse is worth
 - `interactive.py`: type lines and see every matching step and the score (`uv run python interactive.py`)
 - `src/ranni/`: the code; [CLAUDE.md](CLAUDE.md) describes how it fits together
 - [TESTING.md](TESTING.md): step-by-step Windows test plan
